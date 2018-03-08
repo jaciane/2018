@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Earth Consultoria</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Earth Consultoria" name="description" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/MetronicGlobalMandatory/css")
+    @Styles.Render("~/MetronicGlobalStyles/css")
+    @Styles.Render("~/MetronicLayoutStyle/css")
+    <link rel="shortcut icon" href="~/Metronic/admin_3/favicon.ico" />
+</head>
+
+<body class="page-container-bg-solid">
+    <div class="page-wrapper">
+        <div class="page-wrapper-row">
+            <div class="page-wrapper-top">
+                <!-- BEGIN HEADER -->
+                <div class="page-header">
+                    <!-- BEGIN HEADER TOP -->
+                    <div class="page-header-top">
+                        <div class="container">
+                            <!-- BEGIN LOGO -->
+                            <div class="page-logo">
+                                <a href="index.html">
+                                    <img src="../Metronic/assets/layouts/layout3/img/logo-default.png" alt="logo" class="logo-default">
+                                </a>
+                            </div>
+                            <!-- END LOGO -->
+                            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                            <a href="javascript:;" class="menu-toggler"></a>
+                            <!-- END RESPONSIVE MENU TOGGLER -->
+                            <!-- BEGIN TOP NAVIGATION MENU -->
+                            <div class="top-menu">
+                                <ul class="nav navbar-nav pull-right" id="action-login">
+                                    <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                                    <li class="dropdown dropdown-extended quick-sidebar-toggler">
+                                        <span class="sr-only">Acessar</span>
+                                        <i class="icon-login"></i>
+                                    </li>
+                                    <!-- END QUICK SIDEBAR TOGGLER -->
+                                </ul>
+                            </div>
+                            <!-- END TOP NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER TOP -->
+                    <!-- BEGIN HEADER MENU -->
+                    <div class="page-header-menu">
+                        <div class="container">
+                            <!-- BEGIN MEGA MENU -->
+                            <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+                            <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+                            <div class="hor-menu  ">
+                                <ul class="nav navbar-nav">
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="~/Home/Index">
+                                            Home
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown  ">
+                                        <a href="javascript:;">
+                                            Quem Somos
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown active">
+                                        <a href="javascript:;">
+                                            Serviços
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown mega-menu-dropdown  mega-menu-full">
+                                        <a href="javascript:;">
+                                            Clientes
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="javascript:;">
+                                            <i class="icon-briefcase"></i> Mais
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- END MEGA MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER MENU -->
+                </div>
+                <!-- END HEADER -->
+            </div>
+        </div>
+
+        @RenderBody()
+
+        <div class="page-wrapper-row">
+            <div class="page-wrapper-bottom">
+                <!-- BEGIN FOOTER -->
+                <!-- BEGIN PRE-FOOTER -->
+                <div class="page-prefooter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12 footer-block JustifyLeft">
+                                <h2>Earth - Consultoria</h2>
+                                <address class="margin-bottom-40">
+                                    <p><i class="fa fa-map-marker"></i> Endereço: Avenida Tancredo Neves, n° 274, Bloco B, sala 734 - Centro Empresarial Iguatemi.</p>
+                                    <p>Caminho das Árvores - Salvador(BA).</p>
+                                    <p>CEP: 41.820-907</p>
+                                </address>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs12 footer-block">
+                                <h2>Fale Conosco</h2>
+                                <div class="subscribe-form">
+                                    <i class="fa fa-envelope"></i> <a href="#">Mensagem</a> 
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                                <h2>Siga-nos em</h2>
+                                <ul class="social-icons">
+                                    <li>
+                                        <a href="javascript:;" data-original-title="rss" class="rss"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="facebook" class="facebook"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="twitter" class="twitter"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="googleplus" class="googleplus"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="linkedin" class="linkedin"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="youtube" class="youtube"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-original-title="vimeo" class="vimeo"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                                <h2>Contatos</h2>
+                                <address class="margin-bottom-40">
+                                   <i class="fa fa-phone"></i> Phone: (71) 0 0000-0000
+                                    <br><i class="fa fa-envelope"></i> Email:
+                                    <a href="mailto:info@earth.com">mauricio@earthconsultoria.com</a>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PRE-FOOTER -->
+                <!-- BEGIN INNER FOOTER -->
+                <div class="page-footer">
+                    <div class="container">
+                        2018 &copy; Desenvolvido por: jacianeba@gmail.com
+                    </div>
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+                <!-- END INNER FOOTER -->
+                <!-- END FOOTER -->
+            </div>
+        </div>
+
+    </div>   
+</body>
+</html>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/metronicCorePlugin/js")
+@Scripts.Render("~/bundles/metronicThemeGlobal/js")
+@Scripts.Render("~/bundles/metronicThemeLayout/js")
+@RenderSection("scripts", required: false)
+<script>
+    $(document).ready(function () {
+        $('#clickmewow').click(function () {
+            $('#radio1003').attr('checked', 'checked');
+        });
+    })
+
+    $("#action-login").click(function () {
+        location.href = "page_user_login_1.html";
+    })
+</script>
+
