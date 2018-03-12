@@ -5965,6 +5965,8 @@
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Shared\ErrorCustom.cshtml" />
     <Content Include="Views\Shared\_LayoutSite.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\Home\Client.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
