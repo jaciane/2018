@@ -59,3 +59,15 @@ textarea {
 .list-item-content {
     text-align: justify;
 }
+
+/*@media (min-width: 1200px).page-container-bg-solid {
+    width: 1170px;
+}
+
+@media (min-width: 992px).page-container-bg-solid {
+    width: 970px;
+}
+
+@media (min-width: 768px).page-container-bg-solid {
+    width: 750px;
+}*/

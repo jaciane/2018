@@ -34,6 +34,10 @@ namespace Presentation.Controllers
         {
             return View();
         }
+        public ActionResult More()
+        {
+            return View();
+        }
     }
 
 }
