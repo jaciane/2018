@@ -45,6 +45,9 @@ textarea {
     -moz-animation-duration: 3s !important;
     animation-duration: 3s !important;
 }
+.about-text {
+    text-align: justify;
+}
 .about-text > h4 {
     background-color: #2ab4c0;
     font-size: 24px;
