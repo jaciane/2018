@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces.Repositories
 {
-    public interface IUnitRepository : IGenericRepository<Unit>
-    {
-    }
+    //public interface IUnitRepository : IGenericRepository<Unit>
+    //{
+    //}
 }

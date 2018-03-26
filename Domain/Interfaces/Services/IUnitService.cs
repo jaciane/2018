@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces.Services
 {
-    public interface IUnitService : IGenericService<Unit>
-    {
-    }
+    //public interface IUnitService : IGenericService<Unit>
+    //{
+    //}
 }

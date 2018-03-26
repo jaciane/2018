@@ -22,9 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }*/
-.page-header {
-    /*background-color: #199094 !important;*/
-}
+/*.page-header {
+   background-color: #199094 !important;
+}*/
 .page-logo .logo-default {
     margin: 6.5px 0 0 !important;
     max-width: 150px;

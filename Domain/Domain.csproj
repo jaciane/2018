@@ -31,9 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\Access.cs" />
     <Compile Include="Entities\LogError.cs" />
-    <Compile Include="Entities\Unit.cs" />
-    <Compile Include="Entities\Variable.cs" />
+    <Compile Include="Entities\Permission.cs" />
+    <Compile Include="Entities\Profile.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Interfaces\Repositories\IGenericRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnitRepository.cs" />
     <Compile Include="Interfaces\Services\IGenericService.cs" />

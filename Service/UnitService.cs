@@ -4,16 +4,16 @@ using Domain.Interfaces.Services;
 
 namespace Service
 {
-    public class UnitService : GenericService<Unit>, IUnitService
-    {
-        private readonly IUnitRepository _unitRepository;
+    //public class UnitService : GenericService<Unit>, IUnitService
+    //{
+    //    private readonly IUnitRepository _unitRepository;
 
-        public UnitService(IUnitRepository unitRepository) : base(unitRepository)
-        {
-            _unitRepository = unitRepository;
-        }
+    //    public UnitService(IUnitRepository unitRepository) : base(unitRepository)
+    //    {
+    //        _unitRepository = unitRepository;
+    //    }
 
-    }
+    //}
 
 
 }

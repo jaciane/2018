@@ -1,6 +1,7 @@
 ﻿using Data.Context;
 using Data.Interfaces;
 using System;
+using System.Data.Entity;
 
 namespace Data
 {
@@ -8,7 +9,7 @@ namespace Data
     {
         private readonly ModelContext _context;
         private bool _disposed = false;
-
+        private DbContextTransaction _transaction;
         public UnitOfWork(ModelContext context)
         {
             _context = context;
@@ -16,12 +17,32 @@ namespace Data
 
         public void BeginTransaction()
         {
+            if (!_disposed)
+                this._transaction = _context.Database.BeginTransaction();
             _disposed = false;
         }
 
-        public void Commit()
+        public void SaveChanges()
         {
             _context.SaveChanges();
+        }
+
+        public void Commit(bool dispose = true)
+        {
+            if (_transaction != null)
+                _transaction.Commit();
+            _transaction = null;
+            if (dispose)
+                Dispose();
+        }
+
+        public void Rollback(bool dispose = true)
+        {
+            if (_transaction != null)
+                _transaction.Rollback();
+            _transaction = null;
+            if (dispose)
+                Dispose();
         }
 
         protected virtual void Dispose(bool disposing)
