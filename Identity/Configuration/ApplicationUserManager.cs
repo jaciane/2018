@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Identity.Model;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security.DataProtection;
-using Application.Interfaces;
-using System.Collections;
-using Identity.Context;
 using System.Security.Claims;
-using Application.ViewModels;
 using System.Linq.Expressions;
 using System.Linq;
+using Application.ViewModels;
+using Microsoft.Owin.Security.DataProtection;
+using Microsoft.AspNet.Identity.Owin;
+using Application.Interfaces;
 
 namespace Identity.Configuration
 {
@@ -73,7 +71,7 @@ namespace Identity.Configuration
         public override Task<IdentityResult> CreateAsync(ApplicationUser user, string password)
         {
             Expression<Func<UserViewModel, bool>> filterUser;
-            filterUser = (UserViewModel p) => (p.Cpf.Equals(user.Cpf) && p.IdCompany == user.IdCompany);
+            filterUser = (UserViewModel p) => (p.Cpf.Equals(user.Cpf) /*&& p.IdCompany == user.IdCompany*/);
             var resultCpf = _userAppService.Get(filterUser);
             if (resultCpf.Count() > 0)
             {

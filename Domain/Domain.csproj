@@ -36,11 +36,16 @@
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Enum\GenericStatusEnum.cs" />
+    <Compile Include="Interfaces\Repositories\IAccessRepository.cs" />
     <Compile Include="Interfaces\Repositories\IGenericRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnitRepository.cs" />
+    <Compile Include="Interfaces\Services\IAccessService.cs" />
     <Compile Include="Interfaces\Services\IGenericService.cs" />
     <Compile Include="Interfaces\Services\IUnitService.cs" />
+    <Compile Include="MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\MailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validations\" />
