@@ -1,5 +1,4 @@
-﻿using Domain.Validations;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Identity.Model
 {
@@ -14,7 +13,7 @@ namespace Identity.Model
         [StringLength(100, ErrorMessage = "A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nova Senha")]
-        [CompareEquals("NewPassword","OldPassword", ErrorMessage = "Nova senha deve ser diferente da atual.")]
+        //[CompareEquals("NewPassword","OldPassword", ErrorMessage = "Nova senha deve ser diferente da atual.")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]

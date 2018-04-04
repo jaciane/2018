@@ -1,6 +1,7 @@
 ﻿using Application.ViewModels;
+using Domain.Entities;
+using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
-using System.Collections.Generic;
 
 namespace Application.Interfaces
 {

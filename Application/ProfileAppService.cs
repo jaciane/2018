@@ -19,24 +19,21 @@ namespace Application
         private readonly IPermissionService _permissionService;
         private readonly IAccessService _accessService;
         private readonly IUnitOfWork _uow;
-        private readonly IAuditAppService _auditAppService;
-        private readonly ILogErrorAppService _logErrorAppService;
+        List<string> errors = new List<string>();
+        //private readonly ILogErrorAppService _logErrorAppService;
 
 
         public ProfileAppService(IProfileService profileService, IPermissionService permissionService,
-            IUnitOfWork uow, IAccessService accessService, IAuditAppService auditAppService, ILogErrorAppService logErrorAppService) : base(uow)
+            IUnitOfWork uow, IAccessService accessService) : base(uow)
         {
             _profileService = profileService;
             _permissionService = permissionService;
             _uow = uow;
             _accessService = accessService;
-            _auditAppService = auditAppService;
-            _logErrorAppService = logErrorAppService;
         }
 
         public List<string> Delete(int id)
         {
-            List<string> errors = new List<string>();
             Profile profile = _profileService.GetById(id);
             if (profile == null)
             {
@@ -45,14 +42,11 @@ namespace Application
             }
             try
             {
-                _auditAppService.SetAuditPrimaryData();
                 BeginTransaction();
                 profile.Active = profile.Active.Equals(((int)GenericStatusEnum.Active).ToString()) ? ((int)GenericStatusEnum.Inactive).ToString() : ((int)GenericStatusEnum.Active).ToString();
                 errors = _profileService.Update(profile);
                 if (errors?.Count == 0)
                 {
-                    SaveChanges();
-                    Audit(profile, EnumDescription.GetEnumDescription(DomainMethodEnum.UPDATE));
                     SaveChanges();
                     Commit();
                 }
@@ -60,15 +54,7 @@ namespace Application
             catch (Exception e)
             {
                 Rollback();
-                errors.Add(CodLogErrorEnum.CODELOGERROR.ToString());
-                _logErrorAppService.Insert(new LogErrorViewModel
-                {
-                    Controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(),
-                    Action = System.Reflection.MethodBase.GetCurrentMethod().Name,
-                    Description = e.Message,
-                    StackTrace = e.StackTrace,
-                    User = HttpContext.Current.User.Identity.Name
-                });
+                errors.Add(CodLogErrorEnum.CODELOGERROR.ToString());          
             }
             return errors;
         }
@@ -93,11 +79,9 @@ namespace Application
 
         public List<string> Insert(ProfileViewModel obj)
         {
-            List<string> errors = new List<string>();
             List<Access> accessInserted = new List<Access>();
             try
             {
-                _auditAppService.SetAuditPrimaryData();
                 BeginTransaction();
                 Profile profile = AutoMapper.Mapper.Map<ProfileViewModel, Profile>(obj);
                 profile.UserList = null;
@@ -120,13 +104,6 @@ namespace Application
                         }
                     }
                     SaveChanges();
-                    Audit(profile, EnumDescription.GetEnumDescription(DomainMethodEnum.INSERT));
-                    SaveChanges();
-                    foreach (var item in accessInserted)
-                    {
-                        Audit(item, EnumDescription.GetEnumDescription(DomainMethodEnum.INSERT));
-                    }
-                    SaveChanges();
                     Commit();
                 }
             }
@@ -134,25 +111,15 @@ namespace Application
             {
                 Rollback();
                 errors.Add(CodLogErrorEnum.CODELOGERROR.ToString());
-                _logErrorAppService.Insert(new LogErrorViewModel
-                {
-                    Controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(),
-                    Action = System.Reflection.MethodBase.GetCurrentMethod().Name,
-                    Description = e.Message,
-                    StackTrace = e.StackTrace,
-                    User = HttpContext.Current.User.Identity.Name
-                });
             }
             return errors;
         }
 
         public List<string> Update(ProfileViewModel obj)
         {
-            List<string> errors = new List<string>();
             List<Access> accessInserted = new List<Access>();
             try
             {
-                _auditAppService.SetAuditPrimaryData();
                 BeginTransaction();
                 Profile profile = AutoMapper.Mapper.Map<ProfileViewModel, Profile>(obj);
                 errors = _profileService.Update(profile);
@@ -167,13 +134,11 @@ namespace Application
                             if (!obj.SelectedPermissionIdList.Contains(item))
                             {
                                 _accessService.Delete(deleteAccess);
-                                Audit(deleteAccess, EnumDescription.GetEnumDescription(DomainMethodEnum.DELETE));
                             }
                         }
                         else
                         {
                             _accessService.Delete(deleteAccess);
-                            Audit(deleteAccess, EnumDescription.GetEnumDescription(DomainMethodEnum.DELETE));
                         }
                     }
                     if (obj.SelectedPermissionIdList != null)
@@ -189,28 +154,13 @@ namespace Application
                         }
                     }
                     SaveChanges();
-                    Audit(profile, EnumDescription.GetEnumDescription(DomainMethodEnum.UPDATE));
-                    SaveChanges();
-                    foreach (var item in accessInserted)
-                    {
-                        Audit(item, EnumDescription.GetEnumDescription(DomainMethodEnum.INSERT));
-                    }
-                    SaveChanges();
                     Commit();
                 }
             }
             catch (Exception e)
             {
                 Rollback();
-                errors.Add(CodLogErrorEnum.CODELOGERROR.ToString());
-                _logErrorAppService.Insert(new LogErrorViewModel
-                {
-                    Controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(),
-                    Action = System.Reflection.MethodBase.GetCurrentMethod().Name,
-                    Description = e.Message,
-                    StackTrace = e.StackTrace,
-                    User = HttpContext.Current.User.Identity.Name
-                });
+                errors.Add(CodLogErrorEnum.CODELOGERROR.ToString());           
             }
             return errors;
         }
@@ -220,11 +170,6 @@ namespace Application
             Expression<Func<Permission, bool>> filter = (Permission p) => p.Id == idProfile;
             var PermissionsMapped = AutoMapper.Mapper.Map<IEnumerable<Permission>, IEnumerable<PermissionViewModel>>(_profileService.GetPermissions(idProfile));
             return PermissionsMapped.ToList();
-        }
-
-        public void Audit(object obj, string method)
-        {
-            _auditAppService.SaveAudit(obj, method);
         }
     }
 }

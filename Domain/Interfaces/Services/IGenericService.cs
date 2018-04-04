@@ -10,10 +10,11 @@ namespace Domain.Interfaces.Services
         IEnumerable<T> GetAll();
         T GetById(int id);
         IEnumerable<T> Get(Expression<Func<T, bool>> filter = null,
-         Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        Expression<Func<IQueryable<T>, IOrderedQueryable<T>>> orderBy = null,
         string includeProperties = "");
-        void Insert(T obj);
-        void Update(T obj);
-        void Delete(int id);
+        List<string> Insert(T obj);
+        List<string> Update(T obj);
+        List<string> Delete(int id);
+        bool Exists(int id);
     }
 }

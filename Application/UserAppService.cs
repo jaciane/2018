@@ -17,16 +17,12 @@ namespace Application
     {
         private readonly IUserService _userService;
         private readonly IUnitOfWork _uow;
-        private readonly IAuditAppService _auditAppService;
-        private readonly ILogErrorAppService _logErrorAppService;
+        List<string> errors = new List<string>();
 
-        public UserAppService(IUserService userService, IUnitOfWork uow,
-            IAuditAppService auditAppService, ILogErrorAppService logErrorAppService) : base(uow)
+        public UserAppService(IUserService userService, IUnitOfWork uow) : base(uow)
         {
             _userService = userService;
             _uow = uow;
-            _auditAppService = auditAppService;
-            _logErrorAppService = logErrorAppService;
         }
 
         public IEnumerable<UserViewModel> GetAll()
@@ -59,17 +55,14 @@ namespace Application
 
         public List<string> Delete(int id)
         {
-            List<string> errors = new List<string>();
             try
             {
-                _auditAppService.SetAuditPrimaryData();
                 BeginTransaction();
                 User user = _userService.GetById(id);
                 errors = _userService.Delete(user);
                 if (errors?.Count == 0)
                 {
                     SaveChanges();
-                    Audit(user, EnumDescription.GetEnumDescription(DomainMethodEnum.UPDATE));
                     Commit();
                 }
             }
@@ -77,24 +70,14 @@ namespace Application
             {
                 Rollback();
                 errors.Add(CodLogErrorEnum.CODELOGERROR.ToString());
-                _logErrorAppService.Insert(new LogErrorViewModel
-                {
-                    Controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(),
-                    Action = System.Reflection.MethodBase.GetCurrentMethod().Name,
-                    Description = e.Message,
-                    StackTrace = e.StackTrace,
-                    User = HttpContext.Current.User.Identity.Name
-                });
             }
             return errors;
         }
 
         public List<string> UpdateProfile(UserViewModel obj)
-        {
-            List<string> errors = new List<string>();
+        {           
             try
             {
-                _auditAppService.SetAuditPrimaryData();
                 BeginTransaction();
                 User user = AutoMapper.Mapper.Map<UserViewModel, User>(obj);
                 errors = _userService.UpdateProfile(user);
@@ -108,21 +91,8 @@ namespace Application
             {
                 Rollback();
                 errors.Add(CodLogErrorEnum.CODELOGERROR.ToString());
-                _logErrorAppService.Insert(new LogErrorViewModel
-                {
-                    Controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(),
-                    Action = System.Reflection.MethodBase.GetCurrentMethod().Name,
-                    Description = e.Message,
-                    StackTrace = e.StackTrace,
-                    User = HttpContext.Current.User.Identity.Name
-                });
             }
             return errors;
-        }
-
-        public void Audit(object obj, string method)
-        {
-            _auditAppService.SaveAudit(obj, method);
         }
     }
 }

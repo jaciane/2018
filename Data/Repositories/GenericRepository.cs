@@ -11,7 +11,7 @@ namespace Data.Repositories
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private ModelContext _context;
-        private DbSet<T> _dbSet;
+        protected DbSet<T> _dbSet;
 
         public GenericRepository(ModelContext context)
         {

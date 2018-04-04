@@ -10,13 +10,23 @@ namespace Application
         {
             _uow = uow;
         }
-        public void BeginTransaction()
+       public void BeginTransaction()
         {
             _uow.BeginTransaction();
         }
         public void Commit()
         {
             _uow.Commit();
+        }
+
+        public void Rollback()
+        {
+            _uow.Rollback();
+        }
+
+        public void SaveChanges()
+        {
+            _uow.SaveChanges();
         }
 
     }

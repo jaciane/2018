@@ -5824,6 +5824,10 @@
       <Project>{3e178d14-407e-416a-be84-6768fb312026}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Identity\Identity.csproj">
+      <Project>{7af20921-25bf-4ccc-b9c8-fe2d88639e8f}</Project>
+      <Name>Identity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

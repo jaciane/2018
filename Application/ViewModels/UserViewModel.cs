@@ -1,5 +1,4 @@
 ﻿using Domain.Enum;
-using Domain.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,7 +19,7 @@ namespace Application.ViewModels
 
         [StringLength(14, ErrorMessage = "O limite máximo de digitos no campo {0} é de 14")]
         [Required]
-        [IsCpfValid]
+        //[IsCpfValid]
         [Display(Name = "CPF")]
         public string Cpf { get; set; }
 
@@ -48,12 +47,8 @@ namespace Application.ViewModels
 
         [Display(Name = "Perfil")]
         public ProfileViewModel Profile { get; set; }
-
-        public CompanyViewModel Company { get; set; }
-
         public List<ProfileViewModel> ProfileList { get; set; }
-        public List<CompanyViewModel> CompanyList { get; set; }
-        public List<UserNotificationViewModel> UserNotificationList { get; set; }
+        //public List<UserNotificationViewModel> UserNotificationList { get; set; }
     }
 
     public class UserViewIndex

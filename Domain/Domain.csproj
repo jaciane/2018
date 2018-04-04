@@ -36,16 +36,33 @@
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Enum\CodLogErrorEnum.cs" />
     <Compile Include="Enum\GenericStatusEnum.cs" />
+    <Compile Include="Enum\TypeSubjectEnum.cs" />
     <Compile Include="Interfaces\Repositories\IAccessRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IComposedKeyGenericRepository.cs" />
     <Compile Include="Interfaces\Repositories\IGenericRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IOrderGenericRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPermissionRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IProfileRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnitRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Interfaces\Services\IAccessService.cs" />
+    <Compile Include="Interfaces\Services\IComposedKeyGenericService.cs" />
     <Compile Include="Interfaces\Services\IGenericService.cs" />
+    <Compile Include="Interfaces\Services\IOrderGenericService.cs" />
+    <Compile Include="Interfaces\Services\IPermissionService.cs" />
+    <Compile Include="Interfaces\Services\IProfileService.cs" />
+    <Compile Include="Interfaces\Services\ISortedComposedKeyService.cs" />
     <Compile Include="Interfaces\Services\IUnitService.cs" />
+    <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="MailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\EnumDescription.cs" />
+    <Compile Include="Util\Formatter.cs" />
+    <Compile Include="Util\MailMessages.cs" />
     <Compile Include="Util\MailService.cs" />
+    <Compile Include="Util\RandomizePassword.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validations\" />

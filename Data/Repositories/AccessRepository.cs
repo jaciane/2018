@@ -6,7 +6,7 @@ using Dapper;
 
 namespace Data.Repositories
 {
-    public class AccessRepository : GenericRepository<Access>, IAccessRepository
+    public class AccessRepository: GenericRepository<Access>, IAccessRepository
     {
         private ModelContext _context;
 

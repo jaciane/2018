@@ -52,6 +52,7 @@
     <Compile Include="Interfaces\IAccessAppService.cs" />
     <Compile Include="Interfaces\IGenericAppService.cs" />
     <Compile Include="Interfaces\ILogErrorAppService.cs" />
+    <Compile Include="Interfaces\IOrderGenericAppService.cs" />
     <Compile Include="Interfaces\IParameterAppService.cs" />
     <Compile Include="Interfaces\IProfileAppService.cs" />
     <Compile Include="Interfaces\IUnitAppService.cs" />
