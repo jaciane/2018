@@ -1,7 +1,4 @@
-﻿/*.page-header {
-   background-color: #199094 !important;
-}*/
-.page-logo .logo-default {
+﻿.page-logo .logo-default {
     margin: 6.5px 0 0 !important;
     max-width: 175px;
     max-height: 67px;
@@ -42,16 +39,26 @@
 .active > a{
     color: #32c5d2 !important;
 }
-
-
-/*@media (min-width: 1200px).page-container-bg-solid {
-    width: 1170px;
+.bg-client-red {
+    background: #ff0000;
+}
+.bg-client-blue {
+    background: #8DB3E2
+}
+.bg-client-yellow {
+    background: #FFFF00
+}
+.bg-client-green {
+    background: #00B050
+}
+.client {
+    margin-left: 10%;
 }
 
-@media (min-width: 992px).page-container-bg-solid {
-    width: 970px;
+.tiles .tile {
+    border-color: black !important;
+    border-width: thin !important;
 }
-
-@media (min-width: 768px).page-container-bg-solid {
-    width: 750px;
-}*/
+.tiles .tile .tile-body img {
+    width: 200px;
+}
