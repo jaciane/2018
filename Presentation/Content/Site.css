@@ -62,3 +62,23 @@
 .tiles .tile .tile-body img {
     width: 200px;
 }
+.text-logo {
+    font-size: 20px;
+    margin-top: -12%;
+    margin-left: 70%;
+    position: relative;
+    color: #32c5d2;
+    font-family: initial;
+    font-style: oblique;
+    font-weight: 700;
+}
+.text-credit {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.428571429;
+    color: #a2abb7 !important;
+    font-style: oblique;
+}
+a.text-credit:link {
+    text-decoration: none !important;
+}
