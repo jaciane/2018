@@ -35,17 +35,29 @@ namespace CrossCutting.IoC
                         container.GetInstance<ApplicationDbContext>())), Lifestyle.Scoped);
 
             // App
-            //container.Register<IUnitAppService, UnitAppService>(Lifestyle.Scoped);
-            //container.Register<ILogErrorAppService, LogErrorAppService>(Lifestyle.Scoped);
+
+            container.Register<IProfileAppService, ProfileAppService>(Lifestyle.Scoped);
+            container.Register<IUserAppService, UserAppService>(Lifestyle.Scoped);
+            container.Register<IAccessAppService, AccessAppService>(Lifestyle.Scoped);
+            container.Register<IParameterAppService, ParameterAppService>(Lifestyle.Scoped);
+            container.Register<IPermissionAppService, PermissionAppService>(Lifestyle.Scoped);
+
 
             //// Service
-            //container.Register<IUnitService, UnitService>(Lifestyle.Scoped);
-            //container.Register<IGenericService<LogError>, GenericService<LogError>>(Lifestyle.Scoped);
+            container.Register<IProfileService, ProfileService>(Lifestyle.Scoped);
+            container.Register<IUserService, UserService>(Lifestyle.Scoped);
+            container.Register<IAccessService, AccessService>(Lifestyle.Scoped);
+            container.Register<IGenericService<Parameter>, GenericService<Parameter>>(Lifestyle.Scoped);
+            container.Register<IPermissionService, PermissionService>(Lifestyle.Scoped);
+
 
             //// Infra Dados
-            //container.Register<IUnitRepository, UnitRepository>(Lifestyle.Scoped);
-            //container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
-            //container.Register<IGenericRepository<LogError>, GenericRepository<LogError>>(Lifestyle.Scoped);
+            container.Register<IProfileRepository, ProfileRepository>(Lifestyle.Scoped);
+            container.Register<IUserRepository, UserRepository>(Lifestyle.Scoped);
+            container.Register<IAccessRepository, AccessRepository>(Lifestyle.Scoped);
+            container.Register<IGenericRepository<Parameter>, GenericRepository<Parameter>>(Lifestyle.Scoped);
+            container.Register<IPermissionRepository, PermissionRepository>(Lifestyle.Scoped);
+            container.Register<IUnitOfWork, UnitOfWork>(Lifestyle.Scoped);
 
 
             container.Register<ModelContext>(Lifestyle.Scoped);

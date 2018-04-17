@@ -54,11 +54,14 @@
     <Compile Include="Interfaces\ILogErrorAppService.cs" />
     <Compile Include="Interfaces\IOrderGenericAppService.cs" />
     <Compile Include="Interfaces\IParameterAppService.cs" />
+    <Compile Include="Interfaces\IPermissionAppService.cs" />
     <Compile Include="Interfaces\IProfileAppService.cs" />
     <Compile Include="Interfaces\IUnitAppService.cs" />
     <Compile Include="Interfaces\IUserAppService.cs" />
     <Compile Include="LogErrorAppService.cs" />
     <Compile Include="Mapper\AutoMapperConfig.cs" />
+    <Compile Include="ParameterAppService.cs" />
+    <Compile Include="PermissionAppService.cs" />
     <Compile Include="ProfileAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitAppService.cs" />

@@ -14,22 +14,22 @@ namespace Presentation.App_Start
         public static Container Initialize()
         {
             var container = new Container();
-            //container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
-            //BootStrapper.Register(container);
+            container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+            BootStrapper.Register(container);
 
-            //container.Register<IAuthenticationManager>(() =>
-            //{
-            //    if (HttpContext.Current != null && HttpContext.Current.Items["owin.Environment"] == null && container.IsVerifying)
-            //    {
-            //        return new OwinContext().Authentication;
-            //    }
-            //    return HttpContext.Current.GetOwinContext().Authentication;
+            container.Register<IAuthenticationManager>(() =>
+            {
+                if (HttpContext.Current != null && HttpContext.Current.Items["owin.Environment"] == null && container.IsVerifying)
+                {
+                    return new OwinContext().Authentication;
+                }
+                return HttpContext.Current.GetOwinContext().Authentication;
 
-            //}, Lifestyle.Scoped);
+            }, Lifestyle.Scoped);
 
-            //container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
-            //container.Verify();
-            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters, container);
+            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            container.Verify();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters, container);
 
 
             return container;

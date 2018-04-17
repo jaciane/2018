@@ -33,9 +33,11 @@
   <ItemGroup>
     <Compile Include="Entities\Access.cs" />
     <Compile Include="Entities\LogError.cs" />
+    <Compile Include="Entities\Parameter.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Profile.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserLogin.cs" />
     <Compile Include="Enum\CodLogErrorEnum.cs" />
     <Compile Include="Enum\GenericStatusEnum.cs" />
     <Compile Include="Enum\TypeSubjectEnum.cs" />

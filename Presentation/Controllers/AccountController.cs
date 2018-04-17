@@ -36,7 +36,11 @@ namespace Presentation.Controllers
             _profileAppService = profileAppService;
         }
 
-        //
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
