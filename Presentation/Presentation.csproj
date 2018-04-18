@@ -4815,8 +4815,11 @@
     <Content Include="Metronic\assets\layouts\layout3\css\themes\yellow-crusta.min.css" />
     <Content Include="Metronic\assets\layouts\layout3\css\themes\yellow-orange.css" />
     <Content Include="Metronic\assets\layouts\layout3\css\themes\yellow-orange.min.css" />
+    <Content Include="Metronic\assets\layouts\layout3\img\2986.jpg" />
+    <Content Include="Metronic\assets\layouts\layout3\img\4095.jpg" />
     <Content Include="Metronic\assets\layouts\layout3\img\ajax-loading.gif" />
     <Content Include="Metronic\assets\layouts\layout3\img\ajax-modal-loading.gif" />
+    <Content Include="Metronic\assets\layouts\layout3\img\atlas-energia2.jpg" />
     <Content Include="Metronic\assets\layouts\layout3\img\avatar.png" />
     <Content Include="Metronic\assets\layouts\layout3\img\avatar1.jpg" />
     <Content Include="Metronic\assets\layouts\layout3\img\avatar10.jpg" />
@@ -4829,6 +4832,15 @@
     <Content Include="Metronic\assets\layouts\layout3\img\avatar7.jpg" />
     <Content Include="Metronic\assets\layouts\layout3\img\avatar8.jpg" />
     <Content Include="Metronic\assets\layouts\layout3\img\avatar9.jpg" />
+    <Content Include="Metronic\assets\layouts\layout3\img\bioconsultoria.png" />
+    <Content Include="Metronic\assets\layouts\layout3\img\bioconsultoria2.png" />
+    <Content Include="Metronic\assets\layouts\layout3\img\coelba.jpg" />
+    <Content Include="Metronic\assets\layouts\layout3\img\distribution-1205862-1600x1200.jpg" />
+    <Content Include="Metronic\assets\layouts\layout3\img\edna-energia2.png" />
+    <Content Include="Metronic\assets\layouts\layout3\img\energia-eletrica1278x958.jpg" />
+    <Content Include="Metronic\assets\layouts\layout3\img\energia-eolica-1280x960.jpg" />
+    <Content Include="Metronic\assets\layouts\layout3\img\engineer.jpg" />
+    <Content Include="Metronic\assets\layouts\layout3\img\eolic-power-1317037-1599x1051.jpg" />
     <Content Include="Metronic\assets\layouts\layout3\img\icon-color-close.png" />
     <Content Include="Metronic\assets\layouts\layout3\img\icon-color.png" />
     <Content Include="Metronic\assets\layouts\layout3\img\loading-spinner-blue.gif" />

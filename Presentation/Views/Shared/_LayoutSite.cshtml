@@ -6,11 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Earth Consultoria" name="description" />
-    <!-- no servidor tiver que colocar todo o css com caminho direto (sem apelido "MetronicGlobalMandatory/css") -->
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/MetronicGlobalMandatory/css")
-    @Styles.Render("~/MetronicGlobalStyles/css")
-    @Styles.Render("~/MetronicLayoutStyle/css")
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/site.css" rel="stylesheet">
+
+    <link href="~/Metronic/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Metronic/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet">
+    <link href="~/Metronic/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Metronic/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet">
+
+    <link href="~/Metronic/assets/global/css/components.min.css" rel="stylesheet">
+    <link href="~/Metronic/assets/global/css/plugins.min.css" rel="stylesheet">
+    <link href="~/Metronic/assets/layouts/layout3/css/layout.min.css" rel="stylesheet">
+    <link href="~/Metronic/assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet">
+    <link href="~/Metronic/assets/layouts/layout3/css/custom.min.css" rel="stylesheet">
+
+    <!-- @Styles.Render("~/Content/css")
+     @Styles.Render("~/MetronicGlobalMandatory/css")
+     @Styles.Render("~/MetronicGlobalStyles/css")
+     @Styles.Render("~/MetronicLayoutStyle/css")-->
     <link rel="shortcut icon" href="~/Metronic/admin_3/favicon.ico" />
 </head>
 
@@ -28,8 +41,8 @@
                                 <a href="index.html">
                                     <img src="~/Metronic/assets/layouts/layout3/img/logo-default.png" alt="logo" class="logo-default">
                                 </a>
-                                <div class="text-logo">Consultoria</div>
-                                </div>
+                                <!--<div class="text-logo">Consultoria</div>-->
+                            </div>
                             <!-- END LOGO -->
                             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                             <a href="javascript:;" class="menu-toggler"></a>
@@ -109,79 +122,79 @@
             </div>
         </div>
         <div class="page-wrapper-row">
-                            <div class="page-wrapper-bottom">
-                                <!-- BEGIN FOOTER -->
-                                <!-- BEGIN PRE-FOOTER -->
-                                <div class="page-prefooter">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-6 col-xs-12 footer-block JustifyLeft">
-                                                <h2>Earth Consultoria</h2>
-                                                <address class="margin-bottom-40">
-                                                    <p><i class="fa fa-map-marker"></i> Endereço: Avenida Tancredo Neves, n° 274, Bloco B, sala 734 - Centro Empresarial Iguatemi.</p>
-                                                    <p>Caminho das Árvores - Salvador(BA).</p>
-                                                    <p>CEP: 41.820-907</p>
-                                                </address>
-                                            </div>
-                                            <div class="col-md-1">
-                                            </div>
-                                                <div class="col-md-4 col-sm-6 col-xs12 footer-block">
-                                                    <h2>Fale Conosco</h2>
-                                                    <div class="subscribe-form">
-                                                        <i class="fa fa-envelope"></i> <a href="~/Home/Contact">Mensagem</a>
-                                                    </div>
-                                                </div>
-                                                @*<div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                                                <h2>Siga-nos em</h2>
-                                                <ul class="social-icons">
-                                                    <li>
-                                                        <a href="javascript:;" data-original-title="rss" class="rss"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" data-original-title="facebook" class="facebook"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" data-original-title="twitter" class="twitter"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" data-original-title="googleplus" class="googleplus"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" data-original-title="linkedin" class="linkedin"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" data-original-title="youtube" class="youtube"></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;" data-original-title="vimeo" class="vimeo"></a>
-                                                    </li>
-                                                </ul>
-                                            </div>*@
-                                                <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                                                    <h2>Contatos</h2>
-                                                    <address class="margin-bottom-40">
-                                                        <i class="fa fa-phone"></i> Celular: (71) 99972-2775
-                                                        <br><i class="fa fa-envelope"></i> E-mail:
-                                                        <a href="mailto:info@earth.com">mauricio@earthconsultoria.com</a>
-                                                    </address>
-                                                </div>
-                                            </div>
-                                        </div>
+            <div class="page-wrapper-bottom">
+                <!-- BEGIN FOOTER -->
+                <!-- BEGIN PRE-FOOTER -->
+                <div class="page-prefooter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12 footer-block JustifyLeft">
+                                <h2>Earth Consultoria</h2>
+                                <address class="margin-bottom-40">
+                                    <p><i class="fa fa-map-marker"></i> Endereço: Avenida Tancredo Neves, n° 274, Bloco B, sala 734 - Centro Empresarial Iguatemi</p>
+                                    <p>Caminho das Árvores - Salvador(BA)</p>
+                                    <p>CEP: 41.820-907</p>
+                                </address>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs12 footer-block">
+                                <h2>Fale Conosco</h2>
+                                <div class="subscribe-form">
+                                    <i class="fa fa-envelope"></i> <a href="~/Home/Contact">Mensagem</a>
                                 </div>
-                                <!-- END PRE-FOOTER -->
-                                <!-- BEGIN INNER FOOTER -->
-                                <div class="page-footer">
-                                    <div class="container text-credit">
-                                        Developed by jacianeba@gmail.com; <a href="http://www.freepik.com" class="text-credit" target="_blank">Designed by Bearfotos/ evening_tao/ Freepik.</a>
-                                    </div>
-                                </div>
-                                <div class="scroll-to-top">
-                                    <i class="icon-arrow-up"></i>
-                                </div>
-                                <!-- END INNER FOOTER -->
-                                <!-- END FOOTER -->
+                            </div>
+                            @*<div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                                    <h2>Siga-nos em</h2>
+                                    <ul class="social-icons">
+                                        <li>
+                                            <a href="javascript:;" data-original-title="rss" class="rss"></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" data-original-title="facebook" class="facebook"></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" data-original-title="twitter" class="twitter"></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" data-original-title="googleplus" class="googleplus"></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" data-original-title="linkedin" class="linkedin"></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" data-original-title="youtube" class="youtube"></a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" data-original-title="vimeo" class="vimeo"></a>
+                                        </li>
+                                    </ul>
+                                </div>*@
+                            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                                <h2>Contatos</h2>
+                                <address class="margin-bottom-40">
+                                    <i class="fa fa-phone"></i> Celular: (71) 99972-2775
+                                    <br><i class="fa fa-envelope"></i> E-mail:
+                                    <a href="mailto:info@earth.com">mauricio@earthconsultoria.com</a>
+                                </address>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <!-- END PRE-FOOTER -->
+                <!-- BEGIN INNER FOOTER -->
+                <div class="page-footer">
+                    <div class="container text-credit">
+                        Developed by jacianeba@gmail.com; <a href="http://www.freepik.com" class="text-credit" target="_blank">Images designed by Bearfotos/ evening_tao/ Freepik.</a>
+                    </div>
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+                <!-- END INNER FOOTER -->
+                <!-- END FOOTER -->
+            </div>
+        </div>
 
     </div>
 </body>

@@ -59,9 +59,12 @@
     border-color: black !important;
     border-width: thin !important;
 }
+
 .tiles .tile .tile-body img {
-    width: 200px;
+    width: 170px;
+    margin-left: 7%;
 }
+
 .text-logo {
     font-size: 20px;
     margin-top: -12%;
