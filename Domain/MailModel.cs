@@ -14,7 +14,7 @@ namespace Domain
             _UserSmtp = UserSmtp;
             _Port = Port;
             _PathImage = PathImage;
-            _From = new MailAddress("ADDRESS@adress.com", DisplayName);
+            //_From = new MailAddress(From, DisplayName);
             _SmtpClient = new SmtpClient(_UserSmtp, Convert.ToInt32(_Port));
             _SmtpClient.UseDefaultCredentials = false;
             _Credentials = new NetworkCredential(_UserMail, _UserPassword);
@@ -32,6 +32,7 @@ namespace Domain
         public string _PathImage { get; private set; }
 
         public List<MailAddress> To { get; set; }
+        public MailAddress From { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
     }

@@ -10,14 +10,16 @@ namespace Application.Mapper
     {
         public static void RegisterMappings()
         {
-            //AutoMapper.Mapper.Initialize(
-            //    cfg =>
-            //    {
-            //        cfg.CreateMap<Unit, UnitViewModel>().ReverseMap();
+            AutoMapper.Mapper.Initialize(
+                cfg =>
+                {
+                    #region  Parameter 
+                    cfg.CreateMap<Parameter, ParameterViewModel>().ReverseMap();
+                    #endregion
 
 
-            //    }
-            //);
+                }
+            );
         }
 
     }

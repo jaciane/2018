@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity;
 using Application.Interfaces;
 using Domain;
 using System.Collections.Generic;
+using Application.ViewModels;
 
 namespace Identity.Configuration
 {
@@ -14,6 +15,7 @@ namespace Identity.Configuration
         private string _SMTP { get; set; }
         private string _port { get; set; }
         private string _displayName { get; set; }
+
         private readonly IParameterAppService _parameterAppService;
 
         public MailService(IParameterAppService parameterAppService)
@@ -28,14 +30,26 @@ namespace Identity.Configuration
             var smtp = _SMTP;
             var port = _port;
             var displayName = _displayName;
-            var path = System.Web.HttpContext.Current.Server.MapPath("~//Content/img/br_logo_no_margin.png");
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Metronic/assets/layouts/layout3/img/logo-default.png");
             MailModel mailModel = new MailModel(mail, password, smtp, port, displayName, path);
             mailModel.Body = message.Body;
             mailModel.Subject = message.Subject;
             mailModel.To = new List<MailAddress>() { new MailAddress(message.Destination) };
+            //Domain.Util.MailService.SendEmail(mailModel);
+            return Task.FromResult(0);
+        }
+        public Task SendAsync(ContactViewModel contact)
+        {
+            var path = System.Web.HttpContext.Current.Server.MapPath("~/Metronic/assets/layouts/layout3/img/logo-default.png");
+            MailModel mailModel = new MailModel(_mail, _password, _SMTP, _port, contact.EmitterName, path);
+            mailModel.Body = contact.Body;
+            mailModel.Subject = contact.Subject;
+            mailModel.To = new List<MailAddress>() { new MailAddress(contact.To) };
+            mailModel.From = new MailAddress(contact.From, contact.EmitterName);
             Domain.Util.MailService.SendEmail(mailModel);
             return Task.FromResult(0);
         }
+
 
         public void SetMailParameters()
         {

@@ -36,10 +36,10 @@ namespace Presentation.Controllers
             _profileAppService = profileAppService;
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
+        //public ActionResult Login()
+        //{
+        //    return View();
+        //}
 
         // GET: /Account/Login
         [AllowAnonymous]
@@ -123,7 +123,7 @@ namespace Presentation.Controllers
                             Request.ApplicationPath.TrimEnd('/') + "/";
                         MailMessages mailMessage = new MailMessages(System.Web.HttpContext.Current.Server.MapPath("~/App_Data/Templates/MailTemplate.txt"));
                         string callbackUrl = mailMessage.RegisterMessage(user.Name, passwd, route);
-                        await _userManager.SendEmailAsync(user.Id, EnumDescription.GetEnumDescription(TypeSubjectEnum.NEWUSER), callbackUrl);
+                        await _userManager.SendEmailAsync(user.Id, /*EnumDescription.GetEnumDescription(MailParametersEnum.NEWUSER)*/ "No usuário", callbackUrl);
                         //this.Flash("Success", ResultMessages.Success());
                     }
                     else
@@ -167,7 +167,7 @@ namespace Presentation.Controllers
                 MailMessages mailMessage = new MailMessages(System.Web.HttpContext.Current.Server.MapPath("~/App_Data/Templates/MailTemplate.txt"));
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 string body = mailMessage.ForgotPasswordMessage(user.Name, callbackUrl);
-                await _userManager.SendEmailAsync(user.Id, EnumDescription.GetEnumDescription(TypeSubjectEnum.FORGOTPASSWORD), body);
+                await _userManager.SendEmailAsync(user.Id, /*EnumDescription.GetEnumDescription(MailParametersEnum.FORGOTPASSWORD)*/ "", body);
                 TempData["emailSuccess"] = "E-mail enviado com sucesso";
                 return null;
             }

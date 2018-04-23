@@ -139,84 +139,21 @@ namespace Domain.Util
             return template;
         }
 
-        public string NewPqrMessage(string userName, string PQR, string revision, string host)
+        public string ContactMessage(string userName, string body, string EmitterName, string mail)
         {
-            string title = "Novo RQPS";
+            string title = "Contate-nos";
             string template = GetTemplatePage(userName);
-            var message = "Foi criado o RQPS " + PQR + " revisão " + revision + ".<br/>" +
-                "Acesse nosso <a href=\"" + host + "\">site</a> para validá-lo.";
+            var message ="Você recebeu uma nova mensagem enviada através da opção Contate-nos, do Site da Earth Consultoria.<br/>" +
+                        "Usuário:"+ EmitterName + "<br/>"+
+                        "E-mail:" + mail + "<br/>"+
+                        "Texto: " + body + "<br/>"; ;
 
             template = template.Replace("{TITLE}", title);
             template = template.Replace("{BODY}", message);
             return template;
         }
 
-        public string NewWeldingStandardMessage(string weldingStandard)
-        {
-            string title = "Nova Norma";
-            string template = GetTemplatePage();
-            var message = "Foi disponibilizada a norma " + weldingStandard + " para a geração de RQPS e EPS.";
 
-            template = template.Replace("{TITLE}", title);
-            template = template.Replace("{BODY}", message);
-            return template;
-        }
-
-        public string NewWeldingProcessMessage(string description, string symbol)
-        {
-            string title = "Novo Processo de Soldagem";
-            string template = GetTemplatePage();
-            var message = "Foi disponibilizado o processo de soldagem " + description + " (" + symbol + ") para a geração de RQPS e EPS.";
-
-            template = template.Replace("{TITLE}", title);
-            template = template.Replace("{BODY}", message);
-            return template;
-        }
-
-        public string NewUnitMessage(string description, string symbol)
-        {
-            string title = "Nova Unidade de Medida";
-            string template = GetTemplatePage();
-            var message = "Foi disponibilizado a unidade de medida " + description + " (" + symbol + ") para a geração de RQPS e EPS.";
-
-            template = template.Replace("{TITLE}", title);
-            template = template.Replace("{BODY}", message);
-            return template;
-        }
-
-        public string NewPqrMessage(string numberPqr, string revisionPqr)
-        {
-            string title = "Inclusão de RQPS";
-            string template = GetTemplatePage();
-            var message = "Foi disponibilizado o RQPS " + numberPqr + " revisão " + revisionPqr + ".";
-
-            template = template.Replace("{TITLE}", title);
-            template = template.Replace("{BODY}", message);
-            return template;
-        }
-
-        public string NewWpsMessage(string numberWps)
-        {
-            string title = "Inclusão de EPS";
-            string template = GetTemplatePage();
-            var message = "Foi disponibilizada a EPS " + numberWps + ".";
-
-            template = template.Replace("{TITLE}", title);
-            template = template.Replace("{BODY}", message);
-            return template;
-        }
-
-        public string NewWpsMessage(string userName, string WPS, string host)
-        {
-            string title = "Nova EPS";
-            string template = GetTemplatePage(userName);
-            var message = "Foi criada a EPS " + WPS + ".<br/>" +
-                "Acesse nosso <a href=\"" + host + "\">site</a> para validá-la.";
-
-            template = template.Replace("{TITLE}", title);
-            template = template.Replace("{BODY}", message);
-            return template;
-        }
 
         private string GetTemplatePage(string userName = null)
         {

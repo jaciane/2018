@@ -61,7 +61,7 @@
 }
 
 .tiles .tile .tile-body img {
-    width: 170px;
+    width: 200px;
     margin-left: 7%;
 }
 
@@ -84,4 +84,7 @@
 }
 a.text-credit:link {
     text-decoration: none !important;
+}
+.page-content-inner{
+    padding: 2% !important;
 }

@@ -213,8 +213,9 @@
             $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
         }
     });
-    //$("#action-login").click(function () {
-    //    location.href = "page_user_login_1.html";
-    //})
+    $("#action-login").click(function () {
+       var url = location.href = "/Account/login"; //"page_user_login_1.html";
+        window.open(url, '_blank');
+    })
 </script>
 
