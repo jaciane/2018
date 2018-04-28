@@ -74,7 +74,7 @@ namespace Presentation.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Login ou senha errados.");
+                    ModelState.AddModelError("", "Login ou senha incorreto!.");
                     return View(model);
             }
         }

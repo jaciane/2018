@@ -51,7 +51,7 @@ namespace Presentation.Controllers
             MailMessages mailMessage = new MailMessages(System.Web.HttpContext.Current.Server.MapPath("~/App_Data/Templates/MailTemplate.txt"));
             contact.Body= mailMessage.ContactMessage(EnumDescription.GetEnumDescription(MailParametersEnum.USERNAME), contact.Body, contact.EmitterName, contact.From);
             mailService.SendAsync(contact);
-            TempData["mailMessage"]="E-mail enviado com sucesso";
+            TempData["mailMessage"] = "E-mail enviado com sucesso!!";
             return View("Contact");
         }
 

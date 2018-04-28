@@ -20,7 +20,9 @@ namespace Application.ViewModels
         [Display(Name = "Nome do Emissor")]
         public string EmitterName { get; set; }
         public string RecipientName { get; set; }
-        [Display(Name = "Celular/Telefone")]
+        //counted with character
+        [Display(Name = "Celular")]
+        [StringLength(14, MinimumLength = 13, ErrorMessage = "O campo Celular deve conter entre 10 e 11 dígitos")] 
         public string Phone { get; set; }
     }
 }

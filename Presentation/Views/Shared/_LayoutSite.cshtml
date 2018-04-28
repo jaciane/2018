@@ -205,6 +205,7 @@
 @Scripts.Render("~/bundles/metronicCorePlugin/js")
 @Scripts.Render("~/bundles/metronicThemeGlobal/js")
 @Scripts.Render("~/bundles/metronicThemeLayout/js")
+@Scripts.Render("~/bundles/inputmask")
 
 <script>
     $(document).ready(function () {
@@ -214,7 +215,7 @@
         }
     });
     $("#action-login").click(function () {
-       var url = location.href = "/Account/login"; //"page_user_login_1.html";
+        var url = location.href = "/Account/login"; //"page_user_login_1.html";
         window.open(url, '_blank');
     })
 </script>

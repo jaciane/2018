@@ -56,10 +56,19 @@ namespace Presentation
                 "~/Content/animate.min.css"
                 ));
 
+            //BEGIN PAGE LEVEL PLUGINS
+            bundles.Add(new ScriptBundle("~/MetronicSelect2/css").Include(
+            "~/Metronic/assets/global/plugins/select2/css/select2.min.css",
+            "~/Metronic/assets/global/plugins/select2/css/select2-bootstrap.min.css"));
+            //END PAGE LEVEL PLUGINS
+
+            //BEGIN PAGE LEVEL PLUGINS
+            bundles.Add(new ScriptBundle("~/MetronicLogin/css").Include(
+            "~/Metronic/assets/pages/css/login-3.min.css"));
+            //END PAGE LEVEL PLUGINS
+
             //BEGIN CORE PLUGINS
             bundles.Add(new ScriptBundle("~/bundles/metronicCorePlugin/js").Include(
-                  //"~/Metronic/assets/global/plugins/jquery.min.js",
-                  //"~/Metronic/assets/global/plugins/bootstrap/js/bootstrap.min.js",
                   "~/Metronic/assets/global/plugins/js.cookie.min.js",
                   "~/Metronic/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
                   "~/Metronic/assets/global/plugins/jquery.blockui.min.js",
@@ -87,6 +96,27 @@ namespace Presentation
                 "~/Scripts/animate.min.js"
                 ));
             //END ANIMATE
+
+            //BEGIN JQUERY INPUTMASK
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+            "~/Scripts/inputmask/inputmask.js",
+            "~/Scripts/Inputmask/jquery.inputmask.js",
+            "~/Scripts/Inputmask/inputmask.extensions.js",
+            "~/Scripts/Inputmask/inputmask.date.extensions.js",
+            "~/Scripts/Inputmask/inputmask.numeric.extensions.js"));
+            //END JQUERY INPUTMASK
+
+            //BEGIN PAGE LEVEL PLUGINS
+            bundles.Add(new ScriptBundle("~/MetronicLogin/js").Include(
+            "~/Metronic/assets/pages/scripts/login.min.js"));
+            //END PAGE LEVEL PLUGINS
+
+            //BEGIN PAGE LEVEL PLUGINS
+            bundles.Add(new ScriptBundle("~/MetronicLoginAdditional/js").Include(
+            "~/Metronic/assets/global/plugins/jquery-validation/js/additional-methods.min.js",
+             "~/Metronic/assets/global/plugins/jquery-validation/js/select2.full.min.js"
+            ));
+            //END PAGE LEVEL PLUGINS
 
         }
     }
