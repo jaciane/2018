@@ -169,7 +169,7 @@ namespace Domain.Util
 
         private string GenerateRecieverText(string userName = null)
         {
-            return userName != null ? "Prezado(a) <strong>" + userName + "</strong>," : "Prezado usuário,";
+            return userName != null ? "Prezado <strong>" + userName + "</strong>," : "Prezado usuário,";
         }
 
     }

@@ -4,7 +4,7 @@ namespace Domain.Enum
 {
     public enum MailParametersEnum
     {
-        [Description("suporte.earthconsultoria@gmail.com")]
+        [Description("mauricio@earthconsultoria.com")]
         EMAIL,
         [Description("Maurício")]
         USERNAME

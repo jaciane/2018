@@ -22,7 +22,7 @@ namespace Application.ViewModels
         public string RecipientName { get; set; }
         //counted with character
         [Display(Name = "Celular")]
-        [StringLength(14, MinimumLength = 13, ErrorMessage = "O campo Celular deve conter entre 10 e 11 dígitos")] 
+        [StringLength(15, MinimumLength = 14, ErrorMessage = "O campo Celular deve conter entre 10 e 11 dígitos")] 
         public string Phone { get; set; }
     }
 }

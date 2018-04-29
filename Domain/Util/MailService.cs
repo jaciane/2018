@@ -18,12 +18,11 @@ namespace Domain.Util
             mail.Subject = mailModel.Subject;
             mail.IsBodyHtml = true;
 
-            var inline = new LinkedResource(mailModel._PathImage);
-            inline.ContentId = Guid.NewGuid().ToString();
-
-            mail.Body = mailModel.Body.Replace("{IMAGE}", inline.ContentId);
+           // var inline = new LinkedResource(mailModel._PathImage);
+           // inline.ContentId = Guid.NewGuid().ToString();
+           //mail.Body = mailModel.Body.Replace("{IMAGE}", inline.ContentId);
             var alternativeView = AlternateView.CreateAlternateViewFromString(mailModel.Body, null, "text/html");
-            alternativeView.LinkedResources.Add(inline);
+            ///alternativeView.LinkedResources.Add(inline);
             mail.AlternateViews.Add(alternativeView);
 
             mailModel._SmtpClient.Send(mail);

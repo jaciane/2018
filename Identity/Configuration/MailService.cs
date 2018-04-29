@@ -40,7 +40,7 @@ namespace Identity.Configuration
         }
         public Task SendAsync(ContactViewModel contact)
         {
-            var path = System.Web.HttpContext.Current.Server.MapPath("~/Metronic/assets/layouts/layout3/img/logo-default.png");
+            var path = string.Empty; // System.Web.HttpContext.Current.Server.MapPath("~/Metronic/assets/layouts/layout3/img/logo-default.png");
             MailModel mailModel = new MailModel(_mail, _password, _SMTP, _port, contact.EmitterName, path);
             mailModel.Body = contact.Body;
             mailModel.Subject = contact.Subject;

@@ -27,18 +27,12 @@
             <hr class="border-grey-mint" />
         </h3>
     </div>
-    @*<div class="logo">
-        <div href="" class="col-md-12">
-            <img src="~/Content/img/br_logo_no_margin.png" alt="" />
-        </div>
-    </div>*@
-    <!-- END LOGO -->
-    <!-- BEGIN LOGIN -->
-    @*<div class=" col-md-12">
-        <div class="content">*@
+    <div class="logo">
+        <a href="~/Home/index" class="col-md-12" title="Ir para página inicial">
+            <img src="~/Metronic/assets/layouts/layout3/img/logo-default.png" alt="logo" class="logo-default" style="width: 140px; padding-top:1%" />
+        </a>
+    </div>
             @RenderBody()
-        @*</div>
-    </div>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")

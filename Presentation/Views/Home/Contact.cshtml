@@ -52,13 +52,10 @@
                                     @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn green" title="">Salvar</button>
+                                    <button type="submit" class="btn green" title="Enviar e-mail" id="submitContact">Enviar</button>
                                 </div>
                             </div>
                         </div>
-                        @*<div class="col-md-6">
-                                <img src="~/Metronic/assets/layouts/layout3/img/mail.jpg"  />
-                            </div>*@
 
                     }
                 </div>
@@ -72,23 +69,24 @@
 <script>
 
     $(document).ready(function () {
-        $("#Phone").inputmask("mask", { "mask": "(99) 9999-99999" });
+        $("#Phone").inputmask("mask", { "mask": "(99) 99999-9999" });
         //$("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
         //$("#cep").inputmask("mask", { "mask": "99999-999" });
         //$("#nascimento").inputmask("mask", { "mask": "99/99/9999" });
         //$("#preco").inputmask("mask", { "mask": "999.999,99" }, { reverse: true });
         //$("#valor").inputmask("mask", { "mask": "#.##9,99" }, { reverse: true });
     });
-
     //$('input[type=submit]').click(function () {
     //    $(this).attr('disabled', 'disabled');
     //    // $(this).parents('form').submit();
     //    //$("#contactForm")[0].reset();
     //    alert("dsf")
     //});
-    //$(document).ready(function () {
-    //    var formID = $('#contactForm');
-    //    $(formID).get(0).reset();
-    //});
-
+    $('#submitContact').click(function () {
+        $('.form-title').remove();
+    });
+    $(document).ready(function () {
+        $('form').find("input[type=text], textarea").val("");
+    });
+    
 </script>
