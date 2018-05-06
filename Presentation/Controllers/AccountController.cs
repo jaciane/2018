@@ -109,7 +109,6 @@ namespace Presentation.Controllers
                     };
 
                     String passwd = RandomizePassword.GenerateRandom(12);
-
                     var result = await _userManager.CreateAsync(user, passwd);
                     if (result.Succeeded)
                     {

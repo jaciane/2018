@@ -65,6 +65,7 @@
     <Compile Include="Util\MailMessages.cs" />
     <Compile Include="Util\MailService.cs" />
     <Compile Include="Util\RandomizePassword.cs" />
+    <Compile Include="Util\ResultMessages.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validations\" />

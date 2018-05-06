@@ -13,10 +13,6 @@ namespace Application.ViewModels
         [Display(Name = "Perfil")]
         public int IdProfile { get; set; }
 
-        //[Required]
-        //[Display(Name = "Empresa")]
-        //public int? IdCompany { get; set; }
-
         [StringLength(14, ErrorMessage = "O limite máximo de digitos no campo {0} é de 14")]
         [Required]
         //[IsCpfValid]
@@ -57,7 +53,6 @@ namespace Application.ViewModels
         public string ResearchName { get; set; }
         public string ResearchEmail { get; set; }
         public string ResearchCpf { get; set; }
-        public string ResearchCompany { get; set; }
         public string ResearchProfile { get; set; }
         public string ResearchActive { get; set; }
 

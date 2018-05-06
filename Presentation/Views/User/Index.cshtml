@@ -1,0 +1,143 @@
+﻿@*@using MvcFlashMessages*@
+@model Application.ViewModels.UserViewIndex
+
+@{
+    ViewBag.Title = "Usuários";
+}
+<h3>@ViewBag.Title</h3>
+<div class="form-group">
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+</div>
+
+<div class="icon btn-plus-g">
+    <a class="topbar-link btn-plus-g-color-dark" href="@Url.Action("Register", "Account")" title="Cadastrar Usuário" data-target="#myModal" data-toggle="modal">
+        <i class="icon-plus"></i>
+    </a>
+</div>
+
+@*@section FlashMessage{
+    <div class="pull-right text-right" id="flash-messages">
+        @Html.RenderFlash()@*ONDE APARECE O flashMessage
+    </div>
+}*@
+<p></p>
+@using (Html.BeginForm("Index", "User", FormMethod.Get, new { @class = "search-form" }))
+{
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <input class="page-input-s form-control" type="text" placeholder="Nome" name="ResearchName" value="@Model.ResearchName" />
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <input class="page-input-s form-control" type="text" placeholder="E-mail" name="ResearchEmail" value="@Model.ResearchEmail" />
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <input class="page-input-s form-control" type="text" placeholder="CPF" name="ResearchCpf" value="@Model.ResearchCpf" id="cpf_index" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+            <input class="page-input-s form-control" type="text" placeholder="Perfil" name="ResearchProfile" value="@Model.ResearchProfile" />
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+            @Html.DropDownListFor(m => m.ResearchActive, new List<SelectListItem> {
+                                            new SelectListItem { Text = "Ativo", Value = "1" },
+                                            new SelectListItem { Text = "Inativo", Value = "0" }
+                                            }, "Situação", new { @class = "page-input-s form-control" })
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+            <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"> <i class="fa fa-search">&nbsp;</i>Pesquisar</button>
+        </div>
+    </div>
+}
+<div>
+    <br />
+</div>
+<table class="table order-column " id="table_rule">
+    <thead style="background-color:#48525e; color:#efefef" class="uppercase">
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                CPF
+            </th>
+            <th>
+                <div class="text-center">
+                    Perfil
+                </div>
+            </th>
+            <th>
+                <div class="text-center">
+                    Situação
+                </div>
+            </th>
+            <th>
+                <div class="text-center">
+                    Ações
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="bg-white">
+
+        @if (Model.UserList != null)
+        {
+            foreach (var item in Model.UserList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td class="cpf_index_table">
+                        @Html.DisplayFor(modelItem => item.Cpf)
+                    </td>
+                    <td>
+                        <div class="text-center">
+                            @Html.DisplayFor(modelItem => item.Profile.Name)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-center">
+                            @Model.StatusName(item.Active)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-right">
+                            <a href="@Url.Action("Edit", "User", new { item.Id })" title="Editar" data-target="#myModal" data-toggle="modal" class="btn btn-outline dark btn-sm dark table-btn " data-id="@item.Id">
+                                <i class="fa fa-edit"></i>&nbsp;Editar
+                            </a>
+                            <a href="@Url.Action("Delete", "User", new { id = item.Id, name = item.Name, email = item.Email })" @(item.Active.Equals("0") ? "disabled=disabled " : "") title="Desativar" data-target="#myModal" data-toggle="modal" class="btn btn-outline dark btn-sm red table-btn" data-id="@item.Id">
+                                <i class="fa fa-trash-o"></i>&nbsp;Desativar
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+        @if (Model.UserList.Count == 0)
+        {
+            <tr>
+                <td colspan="7">
+                    <div class="text-center">
+                        Nenhum usuário encontrado
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@Scripts.Render("~/bundles/jquery")
+@*@Scripts.Render("~/bundles/maskedInput")
+@Scripts.Render("~/userJS/js")*@
+@*@Html.Partial("_Modal")*@
+
+

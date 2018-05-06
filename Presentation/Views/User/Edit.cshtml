@@ -1,0 +1,59 @@
+﻿@model Application.ViewModels.UserViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+    ViewBag.Title = "Register";
+}
+
+<div class="modal-header">
+    <h4 class="modal-title">Editar Usuário</h4>
+</div>
+@using (Html.BeginForm("Edit", "User", FormMethod.Post, new { @class = "horizontal-form", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal-body">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <div class="form-body text-left">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("Nome", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("E-mail", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        <label class="contol-label">CPF</label>
+                        @Html.TextBoxFor(m => m.Cpf, new { @class = "form-control", @id = "cpf" })
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("Empresa", new { @class = "control-label" })
+                        @Html.DropDownListFor(m => m.IdCompany, new SelectList(Model.CompanyList, "ID", "NAME"), "", new { @class = "form-control", @id = "selectedPart" })
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        @Html.Label("Perfil", new { @class = "control-label" })
+                        @Html.DropDownListFor(m => m.IdProfile, new SelectList(Model.ProfileList, "ID", "NAME"), "", new { @class = "form-control", @id = "selectedPart" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn green-meadow"> Salvar Usuário </button>
+    </div>
+}
+
+@Scripts.Render("~/bundles/maskedInput")
+@Scripts.Render("~/userJS/js")
