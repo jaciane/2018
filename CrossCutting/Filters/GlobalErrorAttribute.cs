@@ -16,6 +16,7 @@ namespace CrossCutting.Filters
 
         public virtual void OnException(ExceptionContext filterContext)
         {
+            var Controller = (string)filterContext.RouteData.Values["controller"];
 
         }
 

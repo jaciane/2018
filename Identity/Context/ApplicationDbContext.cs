@@ -20,7 +20,7 @@ namespace Identity.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.HasDefaultSchema(ContextConfig.SchemeName);
+            modelBuilder.HasDefaultSchema(ContextConfig.SchemeName);
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ApplicationUser>().ToTable("USER").Property(x => x.Id).HasColumnName("ID");
             modelBuilder.Entity<ApplicationUser>().ToTable("USER").Property(x => x.IdProfile).HasColumnName("ID_PROFILE");

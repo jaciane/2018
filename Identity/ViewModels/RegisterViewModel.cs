@@ -28,9 +28,9 @@ namespace Identity.Model
         [Display(Name = "Perfil")]
         public int IdProfile { get; set; }
 
-        [Required]
-        [Display(Name = "Empresa")]
-        public int IdCompany { get; set; }
+        //[Required]
+        //[Display(Name = "Empresa")]
+        //public int IdCompany { get; set; }
 
         public string Profile { get; set; }
 

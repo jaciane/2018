@@ -16,8 +16,14 @@ namespace Application.Mapper
                     #region  Parameter 
                     cfg.CreateMap<Parameter, ParameterViewModel>().ReverseMap();
                     #endregion
-
-
+                    #region Profile
+                    cfg.CreateMap<Domain.Entities.Profile, ProfileViewModel>().ReverseMap();
+                    #endregion
+                    #region User
+                    cfg.CreateMap<UserViewModel, User>().ReverseMap();
+                    cfg.CreateMap<UserViewModel, UserViewModel>().ReverseMap();
+                    #endregion
+         
                 }
             );
         }

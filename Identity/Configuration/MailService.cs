@@ -30,12 +30,13 @@ namespace Identity.Configuration
             var smtp = _SMTP;
             var port = _port;
             var displayName = _displayName;
-            var path = System.Web.HttpContext.Current.Server.MapPath("~/Metronic/assets/layouts/layout3/img/logo-default.png");
+            var path = string.Empty; //System.Web.HttpContext.Current.Server.MapPath("~/Metronic/assets/layouts/layout3/img/logo-default.png");
             MailModel mailModel = new MailModel(mail, password, smtp, port, displayName, path);
             mailModel.Body = message.Body;
             mailModel.Subject = message.Subject;
             mailModel.To = new List<MailAddress>() { new MailAddress(message.Destination) };
-            //Domain.Util.MailService.SendEmail(mailModel);
+            mailModel.From = new MailAddress(mail, displayName);
+            Domain.Util.MailService.SendEmail(mailModel);
             return Task.FromResult(0);
         }
         public Task SendAsync(ContactViewModel contact)

@@ -24,7 +24,6 @@ namespace Domain.Util
             var alternativeView = AlternateView.CreateAlternateViewFromString(mailModel.Body, null, "text/html");
             ///alternativeView.LinkedResources.Add(inline);
             mail.AlternateViews.Add(alternativeView);
-
             mailModel._SmtpClient.Send(mail);
             return Task.FromResult(0);
         }

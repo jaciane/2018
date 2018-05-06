@@ -13,9 +13,9 @@ namespace Application.ViewModels
         [Display(Name = "Perfil")]
         public int IdProfile { get; set; }
 
-        [Required]
-        [Display(Name = "Empresa")]
-        public int? IdCompany { get; set; }
+        //[Required]
+        //[Display(Name = "Empresa")]
+        //public int? IdCompany { get; set; }
 
         [StringLength(14, ErrorMessage = "O limite máximo de digitos no campo {0} é de 14")]
         [Required]

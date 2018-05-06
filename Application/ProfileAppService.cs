@@ -20,8 +20,6 @@ namespace Application
         private readonly IAccessService _accessService;
         private readonly IUnitOfWork _uow;
         List<string> errors = new List<string>();
-        //private readonly ILogErrorAppService _logErrorAppService;
-
 
         public ProfileAppService(IProfileService profileService, IPermissionService permissionService,
             IUnitOfWork uow, IAccessService accessService) : base(uow)

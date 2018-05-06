@@ -36,11 +36,6 @@ namespace Presentation.Controllers
             _profileAppService = profileAppService;
         }
 
-        //public ActionResult Login()
-        //{
-        //    return View();
-        //}
-
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -96,47 +91,48 @@ namespace Presentation.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            FulFillLists(model);
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser
+                FulFillLists(model);
+                if (ModelState.IsValid)
                 {
-                    UserName = model.Email.Trim(),
-                    Email = model.Email.Trim(),
-                    Cpf = Domain.Util.Formatter.RemoveFormattingOfCnpjOrCpf(model.Cpf),
-                    Name = model.Name.Trim(),
-                    IdProfile = model.IdProfile,
-                    Active = activeStatus,
-                    RecieveNotification = true
-                };
-
-                String passwd = RandomizePassword.GenerateRandom(12);
-
-                var result = await _userManager.CreateAsync(user, passwd);
-                if (result.Succeeded)
-                {
-                    ((Identity.Configuration.MailService)_userManager.EmailService).SetMailParameters();
-                    if (errors?.Count == 0)
+                    var user = new ApplicationUser
                     {
-                        var route = Request.Url.Scheme + "://" + Request.Url.Authority +
-                            Request.ApplicationPath.TrimEnd('/') + "/";
-                        MailMessages mailMessage = new MailMessages(System.Web.HttpContext.Current.Server.MapPath("~/App_Data/Templates/MailTemplate.txt"));
-                        string callbackUrl = mailMessage.RegisterMessage(user.Name, passwd, route);
-                        await _userManager.SendEmailAsync(user.Id, /*EnumDescription.GetEnumDescription(MailParametersEnum.NEWUSER)*/ "No usuário", callbackUrl);
+                        UserName = model.Email.Trim(),
+                        Email = model.Email.Trim(),
+                        Cpf = Domain.Util.Formatter.RemoveFormattingOfCnpjOrCpf(model.Cpf),
+                        Name = model.Name.Trim(),
+                        IdProfile = model.IdProfile,
+                        Active = activeStatus,
+                        RecieveNotification = true
+                    };
+
+                    String passwd = RandomizePassword.GenerateRandom(12);
+
+                    var result = await _userManager.CreateAsync(user, passwd);
+                    if (result.Succeeded)
+                    {
+                        ((Identity.Configuration.MailService)_userManager.EmailService).SetMailParameters();
+                        if (errors?.Count == 0)
+                        {
+                            var route = Request.Url.Scheme + "://" + Request.Url.Authority +
+                                Request.ApplicationPath.TrimEnd('/') + "/";
+                            MailMessages mailMessage = new MailMessages(System.Web.HttpContext.Current.Server.MapPath("~/App_Data/Templates/MailTemplate.txt"));
+                            string callbackUrl = mailMessage.RegisterMessage(user.Name, passwd, route);
+                        await _userManager.SendEmailAsync(user.Id, "Cadastro de usuário", callbackUrl);
+
                         //this.Flash("Success", ResultMessages.Success());
                     }
-                    else
-                    {
-                        _userManager.Delete(user);
-                       // this.Flash("Error", ResultMessages.AplicationException());
+                        else
+                        {
+                            _userManager.Delete(user);
+                            // this.Flash("Error", ResultMessages.AplicationException());
+                        }
+                        return RedirectToAction("Index", "User");
                     }
-                    return RedirectToAction("Index", "User");
+                //    AddErrors(result);
                 }
-                AddErrors(result);
-            }
 
             return View(model);
         }
@@ -254,8 +250,8 @@ namespace Presentation.Controllers
         {
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Expression<Func<ProfileViewModel, bool>> filterProfile = (ProfileViewModel p) => (p.Active.Equals(activeStatus));
-            var Profiles = _profileAppService.Get(filterProfile, orderBy: q => q.OrderBy(d => d.Name));
-            register.ProfileList = new List<ProfileViewModel>(Profiles);
+            var Profiles = _profileAppService.Get(filterProfile, orderBy: q => q.OrderBy(d => d.Name))?.ToList();
+            register.ProfileList = Profiles;
         }
 
         #region Identity Methods

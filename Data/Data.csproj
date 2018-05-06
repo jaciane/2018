@@ -97,9 +97,9 @@
     <Compile Include="EntityConfig\UserConfiguration.cs" />
     <Compile Include="EntityConfig\UserLoginConfiguration.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Migrations\201804160154172_Inicial.cs" />
-    <Compile Include="Migrations\201804160154172_Inicial.Designer.cs">
-      <DependentUpon>201804160154172_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201804300039573_initial.cs" />
+    <Compile Include="Migrations\201804300039573_initial.Designer.cs">
+      <DependentUpon>201804300039573_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,8 +122,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804160154172_Inicial.resx">
-      <DependentUpon>201804160154172_Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804300039573_initial.resx">
+      <DependentUpon>201804300039573_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

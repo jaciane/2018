@@ -71,7 +71,7 @@ namespace Identity.Configuration
         public override Task<IdentityResult> CreateAsync(ApplicationUser user, string password)
         {
             Expression<Func<UserViewModel, bool>> filterUser;
-            filterUser = (UserViewModel p) => (p.Cpf.Equals(user.Cpf) /*&& p.IdCompany == user.IdCompany*/);
+            filterUser = (UserViewModel p) => (p.Cpf.Equals(user.Cpf));
             var resultCpf = _userAppService.Get(filterUser);
             if (resultCpf.Count() > 0)
             {
@@ -130,7 +130,7 @@ namespace Identity.Configuration
             EmailService = new MailService(_parameterAppService);
 
 
-            var provider = new DpapiDataProtectionProvider("Petrobras");
+            var provider = new DpapiDataProtectionProvider("Earth");
             var dataProtector = provider.Create("EmailConfirmation");
 
             UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser, int>(dataProtector);
