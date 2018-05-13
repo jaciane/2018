@@ -1,0 +1,44 @@
+﻿@model Application.ViewModels.ProfileViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+<div>
+    @{
+        string textTitle = "";
+        string textBtnSubmit = "";
+        string btnClassColor = "";
+        string textBody = "";
+        if (Model.Active.Equals(((int)Domain.Enum.GenericStatusEnum.Inactive).ToString()))
+        {
+            textTitle = "Reativar Perfil";
+            textBtnSubmit = "Reativar";
+            btnClassColor = "green-meadow";
+            textBody = "Reativar";
+        }
+        else
+        {
+            textTitle = "Desativar Perfil";
+            textBtnSubmit = "Desativar";
+            btnClassColor = "red";
+            textBody = "Desativar";
+        }
+
+    }
+    <div class="modal-header">
+        <h4 class="modal-title">@textTitle</h4>
+    </div>
+
+    <div class="modal-body">
+        <p id="dialog-text-del">Tem certeza que deseja @textBody o perfil @Model.Name ?</p>
+    </div>
+
+    @using (Html.BeginForm("Delete", "Profile", FormMethod.Post, new { @class = "horizontal-form" }))
+    {
+        @*@Html.HiddenFor(model => model.Id)*@
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn @btnClassColor"> @textBtnSubmit </button>
+        </div>
+    }
+</div>

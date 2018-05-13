@@ -1,12 +1,36 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims;
+@using Domain.Enum;
+@using Application.ViewModels;
+@{
+    var user = (ClaimsIdentity)User.Identity;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <!--FONT-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
 
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+   @Styles.Render("~/MetronicGlobalMandatory/css")
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    @Styles.Render("~/ThemeGlobal/css")
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    @Styles.Render("~/MetronicLayoutStyle/css")
+    <!-- END THEME LAYOUT STYLES -->
+    <!-- BEGIN CUSTOM STYLES -->
+    @Styles.Render("~/Flash-messages/css")
+    <!-- END CUSTOM STYLES -->
+    <link rel="shortcut icon" href="~/favicon.ico" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -37,8 +61,20 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+
+    @Scripts.Render("~/Core/js")
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    @Scripts.Render("~/bundles/metronicThemeGlobal/js")
+    <!-- END THEME GLOBAL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    @Scripts.Render("~/Theme/js")
+    <!-- END THEME LAYOUT SCRIPTS -->
+    <!--BEGIN GLOBAL CUSTOM SCRIPTS-->
+    @Scripts.Render("~/globalCustomJS/js")
+    <!--END GLOBAL CUSTOM SCRIPTS-->
 </body>
 </html>

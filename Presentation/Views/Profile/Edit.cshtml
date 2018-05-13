@@ -1,0 +1,72 @@
+﻿@model Application.ViewModels.ProfileViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutModal.cshtml";
+}
+
+@Styles.Render("~/bundles/multiselect/css")
+<div class="modal-header">
+    <h4 class="modal-title">Editar Perfil</h4>
+</div>
+
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { @class = "horizontal-form" }))
+{
+    <div class="modal-body">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <div class="form-body text-left">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.Label("Perfil", new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.HiddenFor(m => m.Active)
+                        @Html.HiddenFor(m => m.Id)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="form-title">
+                            <h4>Permissões</h4>
+                        </div>
+
+                        <select multiple="multiple" class="multi-select" id="multi-select-custom" name="SelectedPermissionIdList">
+                            @foreach (var item in Model.PermissionGrouped)
+                            {
+
+                                <optgroup label="@item[0].ClaimType">
+                                    @foreach (var element in item)
+                                    {
+                                        if (Model.SelectedPermissionIdList != null)
+                                        {
+                                            if (Model.SelectedPermissionIdList.Contains(element.Id))
+                                            {
+                                                <option value="@element.Id" selected>@element.ClaimValue</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@element.Id">@element.ClaimValue</option>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <option value="@element.Id">@element.ClaimValue</option>
+                                        }
+                                    }
+                                </optgroup>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn green-meadow">Salvar Perfil</button>
+    </div>
+
+}
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/multiselectJs")
+@Scripts.Render("~/Profile/js")

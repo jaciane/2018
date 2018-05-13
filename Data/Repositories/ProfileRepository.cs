@@ -19,8 +19,8 @@ namespace Data.Repositories
         public List<Permission> GetPermissions(int idProfile)
         {
             var cn = _context.Database.Connection;
-            var sql = string.Format(@"SELECT P.CLAIMTYPE AS ClaimType, P.CLAIMVALUE AS ClaimValue, P.ID AS Id FROM ""PERMISSION"" P
-                    INNER JOIN ""ACCESS"" A ON A.ID_PERMISSION = P.ID
+            var sql = string.Format(@"SELECT P.CLAIMTYPE AS ClaimType, P.CLAIMVALUE AS ClaimValue, P.ID AS Id FROM PERMISSION P
+                    INNER JOIN ACCESS A ON A.ID_PERMISSION = P.ID
                     WHERE A.ID_PROFILE = {0}", idProfile);
             IEnumerable<Permission> next = cn.Query<Permission>(sql);
             return (List<Permission>)next;

@@ -17,13 +17,21 @@ namespace Application.Mapper
                     cfg.CreateMap<Parameter, ParameterViewModel>().ReverseMap();
                     #endregion
                     #region Profile
-                    cfg.CreateMap<Domain.Entities.Profile, ProfileViewModel>().ReverseMap();
+                    cfg.CreateMap<Domain.Entities.Profile, ProfileViewModel>().ReverseMap()
+                        .ForMember(x => x.Name, opt => opt.MapFrom(y => y.Name.Trim()));
                     #endregion
                     #region User
                     cfg.CreateMap<UserViewModel, User>().ReverseMap();
                     cfg.CreateMap<UserViewModel, UserViewModel>().ReverseMap();
                     #endregion
-         
+                    #region Profile
+                    cfg.CreateMap<Domain.Entities.Permission, PermissionViewModel>().ReverseMap();
+                    #endregion
+                    #region  Access 
+                    cfg.CreateMap<Access, AccessViewModel>().ReverseMap();
+                    #endregion
+
+
                 }
             );
         }

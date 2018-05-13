@@ -67,7 +67,7 @@ namespace Application
 
         public IEnumerable<ProfileViewModel> GetAll()
         {
-            return AutoMapper.Mapper.Map<IEnumerable<Profile>, IEnumerable<ProfileViewModel>>(_profileService.GetAll()).OrderBy(q => q.Name);
+            return AutoMapper.Mapper.Map<IEnumerable<Profile>, IEnumerable<ProfileViewModel>>(_profileService.GetAll());
         }
 
         public ProfileViewModel GetById(int id)

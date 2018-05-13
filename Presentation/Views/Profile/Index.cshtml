@@ -1,0 +1,115 @@
+﻿@*@using MvcFlashMessages*@
+@model Application.ViewModels.ProfileViewIndex
+
+@{
+    ViewBag.Title = "Perfil";
+}
+<h3>@ViewBag.Title</h3>
+<div class="form-group">
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+</div>
+
+<div class="icon btn-plus-g">
+    <a class="topbar-link btn-plus-g-color-dark" href="@Url.Action("Create", "Profile")" title="Cadastrar Perfil" data-target="#myModal" data-toggle="modal">
+        <i class="icon-plus"></i>
+    </a>
+</div>
+
+@*@section FlashMessage{
+    <div class="pull-right text-right" id="flash-messages">
+        @Html.RenderFlash()@*ONDE APARECE O flashMessage
+    </div>
+}*@
+<p></p>
+<div class="row">
+    @using (Html.BeginForm("Index", "Profile", FormMethod.Get, new { @class = "search-form" }))
+    {
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <input class="form-control" type="text" placeholder="Perfil" name="ResearchName" value="@Model.ResearchName" />
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            @Html.DropDownListFor(m => m.ResearchActive, new List<SelectListItem> {
+                                            new SelectListItem { Text = "Ativo", Value = "1" },
+                                            new SelectListItem { Text = "Inativo", Value = "0" }
+                                            }, "Situação", new { @class = "form-control" })
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"> <i class="fa fa-search">&nbsp;</i>Pesquisar</button>
+        </div>
+    }
+</div>
+<div>
+    <br />
+</div>
+<table class="table order-column " id="table_rule">
+    <thead style="background-color:#48525e; color:#efefef" class="uppercase">
+        <tr>
+            <th class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                Perfil
+            </th>
+            <th class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
+                <div class="text-center">
+                    Situação
+                </div>
+            </th>
+            <th class="col-lg-2 col-md-2 col-sm-4 col-xs-4 text-center">
+                <div class="text-center">
+                    Ações
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="bg-white">
+
+        @if (Model.ProfileList != null)
+        {
+            foreach (var item in Model.ProfileList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <div class="text-center">
+                            @Model.StatusName(item.Active)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-right">
+                            @if (item.Active.Equals(((int)Domain.Enum.GenericStatusEnum.Active).ToString()))
+                            {
+                                <a href="@Url.Action("Edit", "Profile", new { item.Id })" title="Editar" data-target="#myModal" data-toggle="modal" class="btn btn-outline dark btn-sm dark " data-id="@item.Id">
+                                    <i class="fa fa-edit"></i>&nbsp;Editar
+                                </a>
+                                <a href="@Url.Action("Delete", "Profile", new { id = item.Id, name = item.Name, active = item.Active })" title="Desativar" data-target="#myModal" data-toggle="modal" class="btn btn-outline dark btn-sm red" data-id="@item.Id">
+                                <i class="fa fa-trash-o"> </i>&nbsp;Desativar
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Delete", "Profile", new { id = item.Id, name = item.Name, active = item.Active })" title="Reativar" data-target="#myModal" data-toggle="modal" class="btn btn-outline dark btn-sm red" data-id="@item.Id">
+                                    <i class="fa fa-refresh"></i>&nbsp;Reativar
+                                </a>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+        @if (Model.ProfileList.Count == 0)
+        {
+            <tr>
+                <td colspan="4">
+                    <div class="text-center">
+                        Nenhum perfil encontrado
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@Html.Partial("_Modal")
+
+

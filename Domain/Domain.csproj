@@ -41,6 +41,8 @@
     <Compile Include="Enum\CodLogErrorEnum.cs" />
     <Compile Include="Enum\GenericStatusEnum.cs" />
     <Compile Include="Enum\MailParametersEnum.cs" />
+    <Compile Include="Enum\TypePermissionEnum.cs" />
+    <Compile Include="Enum\ValuePermissionEnum.cs" />
     <Compile Include="Interfaces\Repositories\IAccessRepository.cs" />
     <Compile Include="Interfaces\Repositories\IComposedKeyGenericRepository.cs" />
     <Compile Include="Interfaces\Repositories\IGenericRepository.cs" />
