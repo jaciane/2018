@@ -45,10 +45,6 @@ namespace Identity.Configuration
             var PermissionList = _profileAppService.GetPermissions(user.IdProfile);
             List<PermissionViewModel> permission = new List<PermissionViewModel>()
             {
-                //new PermissionViewModel() {
-                //    ClaimType = "COMPANY",
-                //    ClaimValue = user.IdCompany.ToString()
-                //},
                 new PermissionViewModel() {
                     ClaimType = "PROFILE",
                     ClaimValue = user.Profile.Name

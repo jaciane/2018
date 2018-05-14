@@ -46,6 +46,7 @@ namespace Presentation
             //BEGIN GLOBAL MANDATORY STYLES
             bundles.Add(new StyleBundle("~/MetronicGlobalMandatory/css").Include(
                      "~/Content/bootstrap.css",
+                     "~/Content/Custom.css",
                      "~/Metronic/assets/global/plugins/font-awesome/css/font-awesome.min.css",
                      "~/Metronic/assets/global/plugins/simple-line-icons/simple-line-icons.min.css",
                       "~/Metronic/assets/global/plugins/bootstrap/css/bootstrap.min.css",

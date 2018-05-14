@@ -32,38 +32,166 @@
     <!-- END CUSTOM STYLES -->
     <link rel="shortcut icon" href="~/favicon.ico" />
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+<body class="page-container-bg-solid">
+
+    <div class="page-wrapper">
+        <div class="page-wrapper-row">
+            <div class="page-wrapper-top">
+                <!-- BEGIN HEADER -->
+                <div class="page-header">
+                    <!-- BEGIN HEADER TOP -->
+                    <div class="page-header-top" style="background-color:#333">
+                        <div class="container">
+                            <!-- BEGIN LOGO -->
+                            <div class="page-logo">
+                                <a href="@Url.RouteUrl("Default", new { controller = "Home", action = "index"})">
+                                    <img src="~/Content/img/logo-default.png" style="margin-top:5%;width: 148px !important;height:  50px !important;" />
+                                </a>
+                            </div>
+                            <!-- END LOGO -->
+                            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                            @*@RenderSection("SandwichMenu", false)*@
+                            <!-- END RESPONSIVE MENU TOGGLER -->
+                            <!-- BEGIN TOP NAVIGATION MENU -->
+                            @*MAIN MENU*@
+                            <div id="first-menu" class="top-menu">
+                                <ul class="nav navbar-nav pull-right ">
+                                    <!-- BEGIN TODO DROPDOWN -->
+                                    @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
+                                    {
+                                        <li id="weldingstd">
+                                            <a href="@Url.RouteUrl("Default", new { controller = "User", action = "index" })">
+                                                Usuário
+                                            </a>
+                                        </li>
+                                    }
+                                    <li class="droddown dropdown-separator ">
+                                        <span class="separator" role="separator"></span>
+                                    </li>
+                                    @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.PROFILE, ValuePermissionEnum.CONSULT, user) || LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
+                                                            {
+                                        <li class="dropdown" id="header_notification_bar">
+                                            <a id="users" href="#" data-toggle="dropdown">Administrativo</a>
+                                            <ul class="dropdown-menu">
+                                                @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.PROFILE, ValuePermissionEnum.CONSULT, user))
+                                                {
+                                                    <li>
+                                                        <a href="@Url.RouteUrl("Default", new { controller = "Profile", action = "index" })">
+                                                            Perfis
+                                                        </a>
+                                                    </li>
+                                                }
+
+                                                @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
+                                                {
+                                                    <li>
+                                                        <a href="@Url.RouteUrl("Default", new { controller = "User", action = "index" })">
+                                                            Usuários
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                    <!-- END TODO DROPDOWN -->
+                                    <!-- BEGIN USER DROPDOWN -->
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav navbar-nav pull-right" }))
+                                        {
+                                            <li class="dropdown" id="header_notification_bar">
+                                                <a id="profile" href="#" data-toggle="dropdown">
+                                                    @User.Identity.Name
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="@Url.RouteUrl("Default", new { controller = "User", action = "Details"})">Meus Dados</a></li>
+                                                    @Html.AntiForgeryToken()
+                                                    <li>
+                                                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                                                            Sair
+                                                            <i class="icon-logout"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        }
+                                    }
+                                    <!-- END USER DROPDOWN -->
+                                </ul>
+                            </div>
+                            <!-- END TOP NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER TOP -->
+                    <!-- BEGIN HEADER MENU -->
+                    @*@RenderSection("SubMenu", false)*@
+
+                    <!-- END HEADER MENU -->
+                </div>
+                <!-- END HEADER -->
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)*@
+        <div class="page-wrapper-row full-height">
+            <div class="page-wrapper-middle">
+                <!-- BEGIN CONTAINER -->
+                <div class="page-container">
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper">
+                        <!-- BEGIN CONTENT BODY -->
+                        <div class="page-content">
+                            <div class="container">
+                                <div class="page-content-inner">
+
+
+                                    @RenderSection("FlashMessage", false)
+
+                                    @RenderBody()
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END CONTENT BODY -->
+                    </div>
+
+                    <!-- BEGIN PAGE CONTENT BODY -->
+                    <div class="page-content">
+                        <div class="container">
+                            <!-- BEGIN PAGE BREADCRUMBS -->
+                            <!-- END PAGE BREADCRUMBS -->
+                            <!-- BEGIN PAGE CONTENT INNER -->
+                            <!-- END PAGE CONTENT INNER -->
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT BODY -->
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
+
+            </div>
+            <!-- END CONTAINER -->
+        </div>
+
+    </div>
+    @*FOOTER*@
+    <div class="page-wrapper-row">
+        <div class="page-wrapper-bottom">
+            <!-- BEGIN FOOTER -->
+            <div class="text-center">
+                <!-- BEGIN INNER FOOTER -->
+                <div class="page-footer">
+                    <div>
+                        <!--img-->
+                    </div>
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+                <!-- END INNER FOOTER -->
+            </div>
+            <!-- END FOOTER -->
+        </div>
+    </div>
 
     @Scripts.Render("~/Core/js")
     <!-- END CORE PLUGINS -->

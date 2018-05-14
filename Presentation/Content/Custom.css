@@ -1,0 +1,8 @@
+﻿.nav > li > a {
+    color: #f1f1f1 !important;
+    text-decoration: none !important;
+}
+.nav > li > a:focus, a:hover {
+    color: black !important;
+    text-decoration: none !important;
+}

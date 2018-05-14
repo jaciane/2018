@@ -79,7 +79,7 @@ namespace Presentation.Controllers
             return RedirectToAction("Index");
         }
 
-        //[ClaimsAuthorize(claimType: TypePermissionEnum.PROFILE, claimValue: ValuePermissionEnum.CHANGE)]
+        [ClaimsAuthorize(claimType: TypePermissionEnum.PROFILE, claimValue: ValuePermissionEnum.CHANGE)]
         public ActionResult Edit(int id)
         {
             Response.Cache.SetCacheability(HttpCacheability.NoCache);

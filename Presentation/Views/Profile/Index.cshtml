@@ -9,17 +9,17 @@
     @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 </div>
 
-<div class="icon btn-plus-g">
-    <a class="topbar-link btn-plus-g-color-dark" href="@Url.Action("Create", "Profile")" title="Cadastrar Perfil" data-target="#myModal" data-toggle="modal">
-        <i class="icon-plus"></i>
-    </a>
-</div>
+
+<a class="btn btn-circle btn-icon-only green" href="@Url.Action("Create", "Profile")" title="Cadastrar Perfil" data-target="#myModal" data-toggle="modal">
+    <i class="fa fa-plus"> </i>
+</a>
+
 
 @*@section FlashMessage{
-    <div class="pull-right text-right" id="flash-messages">
-        @Html.RenderFlash()@*ONDE APARECE O flashMessage
-    </div>
-}*@
+        <div class="pull-right text-right" id="flash-messages">
+            @Html.RenderFlash()@*ONDE APARECE O flashMessage
+        </div>
+    }*@
 <p></p>
 <div class="row">
     @using (Html.BeginForm("Index", "Profile", FormMethod.Get, new { @class = "search-form" }))
@@ -29,9 +29,9 @@
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             @Html.DropDownListFor(m => m.ResearchActive, new List<SelectListItem> {
-                                            new SelectListItem { Text = "Ativo", Value = "1" },
-                                            new SelectListItem { Text = "Inativo", Value = "0" }
-                                            }, "Situação", new { @class = "form-control" })
+                                        new SelectListItem { Text = "Ativo", Value = "1" },
+                                        new SelectListItem { Text = "Inativo", Value = "0" }
+                                        }, "Situação", new { @class = "form-control" })
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
             <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"> <i class="fa fa-search">&nbsp;</i>Pesquisar</button>
@@ -82,7 +82,7 @@
                                     <i class="fa fa-edit"></i>&nbsp;Editar
                                 </a>
                                 <a href="@Url.Action("Delete", "Profile", new { id = item.Id, name = item.Name, active = item.Active })" title="Desativar" data-target="#myModal" data-toggle="modal" class="btn btn-outline dark btn-sm red" data-id="@item.Id">
-                                <i class="fa fa-trash-o"> </i>&nbsp;Desativar
+                                    <i class="fa fa-trash-o"> </i>&nbsp;Desativar
                                 </a>
                             }
                             else
