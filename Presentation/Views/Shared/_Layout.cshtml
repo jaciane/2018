@@ -61,61 +61,72 @@
                                     {
                                         <li id="weldingstd">
                                             <a href="@Url.RouteUrl("Default", new { controller = "User", action = "index" })">
-                                                Usuário
+                                                Empreendimento
                                             </a>
                                         </li>
                                     }
                                     <li class="droddown dropdown-separator ">
                                         <span class="separator" role="separator"></span>
                                     </li>
-                                    @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.PROFILE, ValuePermissionEnum.CONSULT, user) || LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
-                                                            {
-                                        <li class="dropdown" id="header_notification_bar">
-                                            <a id="users" href="#" data-toggle="dropdown">Administrativo</a>
-                                            <ul class="dropdown-menu">
-                                                @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.PROFILE, ValuePermissionEnum.CONSULT, user))
-                                                {
-                                                    <li>
-                                                        <a href="@Url.RouteUrl("Default", new { controller = "Profile", action = "index" })">
-                                                            Perfis
-                                                        </a>
-                                                    </li>
-                                                }
-
-                                                @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
-                                                {
-                                                    <li>
-                                                        <a href="@Url.RouteUrl("Default", new { controller = "User", action = "index" })">
-                                                            Usuários
-                                                        </a>
-                                                    </li>
-                                                }
-                                            </ul>
+                                    @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
+                                    {
+                                        <li id="weldingstd">
+                                            <a href="@Url.RouteUrl("Default", new { controller = "User", action = "index" })">
+                                                Parametrizar
+                                            </a>
                                         </li>
                                     }
+                                            <li class="droddown dropdown-separator ">
+                                                <span class="separator" role="separator"></span>
+                                            </li>
+                                    @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.PROFILE, ValuePermissionEnum.CONSULT, user) || LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
+    {
+                                <li class="dropdown" id="header_notification_bar">
+                                    <a id="users" href="#" data-toggle="dropdown">Administrativo</a>
+                                    <ul class="dropdown-menu">
+                                        @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.PROFILE, ValuePermissionEnum.CONSULT, user))
+        {
+                                <li>
+                                    <a href="@Url.RouteUrl("Default", new { controller = "Profile", action = "index" })">
+                                        Perfis
+                                    </a>
+                                </li>
+}
+
+                                        @if (LayoutViewModel.VerifyClaimExists(TypePermissionEnum.USER, ValuePermissionEnum.CONSULT, user))
+        {
+                                <li>
+                                    <a href="@Url.RouteUrl("Default", new { controller = "User", action = "index" })">
+                                        Usuários
+                                    </a>
+                                </li>
+}
+                                    </ul>
+                                </li>
+}
                                     <!-- END TODO DROPDOWN -->
                                     <!-- BEGIN USER DROPDOWN -->
                                     @if (Request.IsAuthenticated)
-                                    {
-                                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav navbar-nav pull-right" }))
-                                        {
-                                            <li class="dropdown" id="header_notification_bar">
-                                                <a id="profile" href="#" data-toggle="dropdown">
-                                                    @User.Identity.Name
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="@Url.RouteUrl("Default", new { controller = "User", action = "Details"})">Meus Dados</a></li>
-                                                    @Html.AntiForgeryToken()
-                                                    <li>
-                                                        <a href="javascript:document.getElementById('logoutForm').submit()">
-                                                            Sair
-                                                            <i class="icon-logout"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        }
-                                    }
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "nav navbar-nav pull-right" }))
+        {
+                                <li class="dropdown" id="header_notification_bar">
+                                    <a id="profile" href="#" data-toggle="dropdown">
+                                        @User.Identity.Name
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="@Url.RouteUrl("Default", new { controller = "User", action = "Details"})">Meus Dados</a></li>
+                                        @Html.AntiForgeryToken()
+                                        <li>
+                                            <a href="javascript:document.getElementById('logoutForm').submit()">
+                                                Sair
+                                                <i class="icon-logout"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+}
+}
                                     <!-- END USER DROPDOWN -->
                                 </ul>
                             </div>

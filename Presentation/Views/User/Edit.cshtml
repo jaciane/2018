@@ -13,7 +13,7 @@
     <div class="modal-body">
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         <div class="form-body text-left">
-            <div class="row">
+
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
                         @Html.Label("Nome", new { @class = "control-label" })
@@ -34,19 +34,19 @@
                         @Html.TextBoxFor(m => m.Cpf, new { @class = "form-control", @id = "cpf" })
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                @*<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
                         @Html.Label("Empresa", new { @class = "control-label" })
                         @Html.DropDownListFor(m => m.IdCompany, new SelectList(Model.CompanyList, "ID", "NAME"), "", new { @class = "form-control", @id = "selectedPart" })
                     </div>
-                </div>
+                </div>*@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
                         @Html.Label("Perfil", new { @class = "control-label" })
                         @Html.DropDownListFor(m => m.IdProfile, new SelectList(Model.ProfileList, "ID", "NAME"), "", new { @class = "form-control", @id = "selectedPart" })
                     </div>
                 </div>
-            </div>
+   
         </div>
     </div>
     <div class="modal-footer">

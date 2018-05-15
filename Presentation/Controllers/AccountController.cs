@@ -63,8 +63,9 @@ namespace Presentation.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    TempData["error"] = null; 
-                    return RedirectToLocal(returnUrl);
+                    TempData["error"] = null;
+                    return RedirectToAction("User","index");
+                    //return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

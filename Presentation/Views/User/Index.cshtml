@@ -9,17 +9,21 @@
     @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 </div>
 
-<div class="icon btn-plus-g">
-    <a class="topbar-link btn-plus-g-color-dark" href="@Url.Action("Register", "Account")" title="Cadastrar Usuário" data-target="#myModal" data-toggle="modal">
-        <i class="icon-plus"></i>
-    </a>
-</div>
+@*<div class="icon btn-plus-g">
+        <a class="topbar-link btn-plus-g-color-dark" href="@Url.Action("Register", "Account")" title="Cadastrar Usuário" data-target="#myModal" data-toggle="modal">
+            <i class="icon-plus"></i>
+        </a>
+    </div>*@
+
+<a class="btn btn-circle btn-icon-only green" href="@Url.Action("Register", "Account")" title="Cadastrar Usuário" data-target="#myModal" data-toggle="modal">
+    <i class="fa fa-plus"> </i>
+</a>
 
 @*@section FlashMessage{
-    <div class="pull-right text-right" id="flash-messages">
-        @Html.RenderFlash()@*ONDE APARECE O flashMessage
-    </div>
-}*@
+        <div class="pull-right text-right" id="flash-messages">
+            @Html.RenderFlash()@*ONDE APARECE O flashMessage
+        </div>
+    }*@
 <p></p>
 @using (Html.BeginForm("Index", "User", FormMethod.Get, new { @class = "search-form" }))
 {
@@ -41,9 +45,9 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
             @Html.DropDownListFor(m => m.ResearchActive, new List<SelectListItem> {
-                                            new SelectListItem { Text = "Ativo", Value = "1" },
-                                            new SelectListItem { Text = "Inativo", Value = "0" }
-                                            }, "Situação", new { @class = "page-input-s form-control" })
+                                        new SelectListItem { Text = "Ativo", Value = "1" },
+                                        new SelectListItem { Text = "Inativo", Value = "0" }
+                                        }, "Situação", new { @class = "page-input-s form-control" })
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
             <button type="submit" class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"> <i class="fa fa-search">&nbsp;</i>Pesquisar</button>
@@ -138,6 +142,6 @@
 @Scripts.Render("~/bundles/jquery")
 @*@Scripts.Render("~/bundles/maskedInput")
 @Scripts.Render("~/userJS/js")*@
-@*@Html.Partial("_Modal")*@
+@Html.Partial("_Modal")
 
 

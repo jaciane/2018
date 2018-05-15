@@ -1,8 +1,14 @@
-﻿.nav > li > a {
+﻿.top-menu .nav > li > a {
     color: #f1f1f1 !important;
     text-decoration: none !important;
 }
-.nav > li > a:focus, a:hover {
-    color: black !important;
-    text-decoration: none !important;
+.top-menu .nav > li > a:focus, .nav > li > a:hover {
+        color: black !important;
+        text-decoration: none !important;
+}
+.modal-dialog{
+    position: initial !important;
+}
+.portlet > .portlet-title > .nav-tabs > li > a {
+    color: #a6a6a6 !important;
 }
