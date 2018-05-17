@@ -1,6 +1,6 @@
-﻿namespace Application.ViewModels
+﻿namespace Domain.Entities
 {
-    class UnitViewModel
+    public class Unit
     {
         public int Id { get; set; }
         public string Abbreviation { get; set; }

@@ -31,11 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\EnterpriseType.cs" />
     <Compile Include="Entities\Access.cs" />
     <Compile Include="Entities\LogError.cs" />
     <Compile Include="Entities\Parameter.cs" />
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Profile.cs" />
+    <Compile Include="Entities\Unit.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserLogin.cs" />
     <Compile Include="Enum\CodLogErrorEnum.cs" />

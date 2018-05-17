@@ -72,6 +72,7 @@
     <Compile Include="ViewModels\PermissionViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
+    <Compile Include="ViewModels\EnterpriseTypeViewModel.cs" />
     <Compile Include="ViewModels\UnitViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>

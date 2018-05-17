@@ -3,9 +3,9 @@ using Application.ViewModels;
 
 namespace Application.Interfaces
 {
-    public interface IUnitAppService :  IGenericAppService<UnitViewModel>
+    public interface IUnitAppService :  IGenericAppService<EnterpriseTypeViewModel>
     {
-       bool VerifyUnitExists(UnitViewModel u);
+       bool VerifyUnitExists(EnterpriseTypeViewModel u);
         //bool VerifyUnitExistsBySymbol();
         //bool VerifyUnitExistsByDescription();
        
